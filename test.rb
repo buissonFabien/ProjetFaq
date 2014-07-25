@@ -1,10 +1,4 @@
-require 'rubygems'
-require 'sinatra'
-require 'sinatra/reloader' if development? 
-require 'mongo'
-require 'json/ext'
-require 'json'
-# require 'ruby-tf-idf'
+
 
 include Mongo
 
