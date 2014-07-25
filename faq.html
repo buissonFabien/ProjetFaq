@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/search_box_faq.css"/>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"> </script>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+		<script type="text/javascript" src="function.js"> </script>		
+
+	</head>
+	
+	<body ng-app='WebSelfCare'>
+		<div ng-controller="getInfoCtrl as app">			
+			<div id="boDiv">  
+				<section> 
+					<form class="form-search" id="form-search" >
+						<p>Une question ?</p>
+						<!-- <input type="text" ng-model="texte" id="search" placeholder="Mots-clefs ..." required/>
+						<button class ="search" ng-click="searchByKeywords(texte)">Search</button>
+						 <li ng-show="affiche" ng-repeat="info in result track by $index">
+							<a href="#" class="questionSearch" ng-click="setSelectedQuestionSearch(info)">{{info}}</a>
+						</li>
+						<p ng-show="afficheResSearch" class="answer">{{getAnswer}}</p>	 -->
+						
+						<input type="text" ng-model="textSearch" id="search" placeholder="Mots-clefs ..." required/>
+						<button class= "search" ng-click="tfidf(textSearch)">click</button>
+						
+					</form>		
+					<ul>
+							<li ng-show="afficheResSearch" ng-repeat= "res in tabFinalPoids | orderBy: '-weight' | unique: 'title' ">
+								<a href="#" class="question" ng-click="setSelectedQuestionSearch(res)">
+									{{res.title}} 
+								</a>  Poids: {{res.weight}}
+								
+							</li>
+						</ul>		
+				</section>
+
+				<!-- Topic_list -->
+				<nav id="topic"> 
+					<div>
+						<!-- <h2>Rubriques</h2><br> -->
+						<ul class="nav">
+							<li ng-repeat= "cat in information | unique: 'categorie'">
+							<!-- <li ng-repeat= "cat in information"> -->
+								<a href="#" class="rubrique" ng-click="setSelectedCat(cat)" >
+									{{cat.categorie}}
+								</a>
+							</li>
+						</ul>
+					</div>
+				</nav> 
+
+
+				<section id="displayResBox">
+					<!-- Boite qui affichera les résultat des recherches -->
+					<div>
+						<ul>
+							<li ng-hide="afficheQuestion"
+								ng-if="catSelected != null" 
+								ng-repeat="question in information | filter: {categorie :catSelected}">
+								<a ng-show= "aff" href="#" class="question" 
+								   ng-click="setSelectedQuestion(question)">
+									{{question.title}}
+								</a>
+							</li>
+							<br>
+							<p  ng-hide="!indice" class="answer">{{selectedQuestion.answer}}</p>						
+							<p  ng-show="!afficheRepSearch" class="answer">{{selectedQuestionSearch.answer}}</p>						
+						</ul>
+					</div>
+				</section>
+
+				<section id="middleBox">   
+					<!-- Topic & questions list -->
+					<div class="ruban">
+						<h2>Sujets populaires</h2>
+							<ul class="nav">
+								<li ng-repeat= "article in information | filter: {popular:'1'}">
+									<a href="#" class="question" ng-click="setSelectedQuestionPop(article)">
+										{{article.title}}
+									</a>
+								</li>
+								<br>
+								<p ng-hide="!pop" class="answer">{{selectedQuestionPop.answer}}</p>	
+							</ul>
+					</div> 
+				 </section>
+
+			</div>
+		</div>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="angular-resource.min.js"></script>	
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
