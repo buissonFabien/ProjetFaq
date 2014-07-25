@@ -1,12 +1,11 @@
-source :'https://rubygems.org'
-gem 'rubygems'
+source :rubygems
 gem 'sinatra'
 gem 'mongo'
-gem 'json/ext'
+# gem 'json/ext'
 gem 'json'
 
 group :development do
 	gem 'heroku'
-	gem 'sinatra/reloader'
+	# gem 'sinatra/reloader'
 
 end
