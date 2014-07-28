@@ -4,8 +4,8 @@ gem 'mongo'
 # gem 'json/ext'
 gem 'json'
 
-group :development do
-	gem 'heroku'
-	# gem 'sinatra/reloader'
+# group :development do
+# 	gem 'heroku'
+# 	# gem 'sinatra/reloader'
 
-end
+# end
