@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'mongo'
 require 'json/ext'
 require 'json'
@@ -41,7 +41,9 @@ get '/getSearchData/:text' do
 end
 
 
-
+get '/' do
+	"helloWorld"
+end
 
 #################################################
 ######################POST#######################
