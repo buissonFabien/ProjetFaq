@@ -17,16 +17,30 @@ end
 
 # set :port, 8080
 
-
+def get_connection
+	return @db_connection if @db_connection
+	db = URI.parse(ENV['MONGOHQ_URL'])
+	db_name = db.path.gsub(/^\//, '')
+	@db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+	@db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+	@db_connection
+end 
 #################################################
 ######################GET########################
 #################################################
 get '/getData' do	
-	@connection = Mongo::Connection.new
-	@db = @connection.db('bddTest')
-	@coll = @db.collection('bddTest')
-	# retourne toute la base au format Json
-	data = @coll.find().to_a.to_json
+	# @connection = Mongo::Connection.new
+	# @db = @connection.db('bddTest')
+	# @coll = @db.collection('bddTest')
+	# # retourne toute la base au format Json
+	# data = @coll.find().to_a.to_json
+	db = get_connection
+	 
+	puts "Collections"
+	puts "==========="
+	collections = db.collection_names
+	puts collections
+
 end
 
 
