@@ -6,11 +6,29 @@ require 'json'
 
 include Mongo
 
+# mongodb://<dbuser>:<dbpassword>@ds053429.mongolab.com:53429/heroku_app27880644
+# #### Connection a MongoDB ###
+# @connection = Mongo::Connection.new
+# @db = @connection.db('bddTest')
+# @coll = @db.collection('bddTest')
 
-#### Connection a MongoDB ###
-@connection = Mongo::Connection.new
-@db = @connection.db('bddTest')
-@coll = @db.collection('bddTest')
+def get_connection
+  return @db_connection if @db_connection
+  db = URI.parse('mongodb://fab:fab@ds053429.mongolab.com:53429/')
+  db_name = 'heroku_app27880644'
+  @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+  @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+  @db_connection
+end
+
+db = get_connection
+
+puts "Collections"
+puts "==========="
+collections = db.collection_names
+puts collections
+last_collection = collections[-1]
+coll = db.collection(last_collection)
 
 ### Test d'insertion d'un document dans la base ###
 
@@ -178,45 +196,45 @@ d17 =	{
 		      	]
 			}
 		}
-@coll.insert(d1)
-@coll.insert(d2)
-@coll.insert(d3)
-@coll.insert(d4)
-@coll.insert(d5)
-@coll.insert(d6)
-@coll.insert(d7)
-@coll.insert(d8)
-@coll.insert(d9)
-@coll.insert(d10)
-@coll.insert(d11)
-@coll.insert(d12)
-@coll.insert(d13)
-@coll.insert(d14)
-@coll.insert(d15)
-@coll.insert(d16)
-# @coll.insert(d17)
+
+coll.insert(d1)
+coll.insert(d2)
+coll.insert(d3)
+coll.insert(d4)
+coll.insert(d5)
+coll.insert(d6)
+coll.insert(d7)
+coll.insert(d8)
+coll.insert(d9)
+coll.insert(d10)
+coll.insert(d11)
+coll.insert(d12)
+coll.insert(d13)
+coll.insert(d14)
+coll.insert(d15)
+coll.insert(d16)
 
 $i=0
 
 
-begin
+# begin
 
-	$title = "titre "+ $i.to_s
-	$cat = "cat "+$i.to_s
-	$keywords = "keywords "+$i.to_s
-	$answer = "answer "+$i.to_s
+# 	$title = "titre "+ $i.to_s
+# 	$cat = "cat "+$i.to_s
+# 	$keywords = "keywords "+$i.to_s
+# 	$answer = "answer "+$i.to_s
 	
-	d={
-		:id => $i,
-		:title => $title,
-		:categorie => $cat,
-		:keywords => $keywords,
-		:answer => $answer,
-		:popular => '0'
-	}
-	@coll.insert(d)	
-   	$i += 1
-end while $i <150
+# 	d={
+# 		:id => $i,
+# 		:title => $title,
+# 		:categorie => $cat,
+# 		:keywords => $keywords,
+# 		:answer => $answer,
+# 		:popular => '0'
+# 	}
+# 	@coll.insert(d)	
+#    	$i += 1
+# end while $i <150
 ### Fermeture du fichier ###
 # fr.close
 

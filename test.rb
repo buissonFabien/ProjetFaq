@@ -18,13 +18,22 @@ end
 # set :port, 8080
 
 def get_connection
-	return @db_connection if @db_connection
-	db = URI.parse(ENV['MONGOHQ_URL'])
-	db_name = db.path.gsub(/^\//, '')
-	@db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
-	@db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
-	@db_connection
-end 
+  return @db_connection if @db_connection
+  db = URI.parse('mongodb://fab:fab@ds053429.mongolab.com:53429/')
+  db_name = 'heroku_app27880644'
+  @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+  @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+  @db_connection
+end
+
+db = get_connection
+
+puts "Collections"
+puts "==========="
+collections = db.collection_names
+puts collections
+last_collection = collections[-1]
+coll = db.collection(last_collection)
 
 puts "ok"
 #################################################
@@ -42,6 +51,7 @@ get '/getData' do
 	puts "==========="
 	collections = db.collection_names
 	puts collections
+	data = coll.find().to_a.to_json
 
 end
 
