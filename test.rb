@@ -52,6 +52,8 @@ get '/getData' do
 	collections = db.collection_names
 	puts collections
 	data = coll.find().to_a.to_json
+	"helloWorld"
+	
 
 end
 
