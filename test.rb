@@ -60,6 +60,7 @@ get '/getSearchData/:text' do
 	@connection = Mongo::Connection.new
 	@db = @connection.db('bddTest')
 	@coll = @db.collection('bddTest')
+	"helloWorld"
 
 	data = @coll.find({:id => "2" }).to_a.to_json
 	puts data
@@ -116,5 +117,3 @@ post '/post' do
 	   	# puts "**********************"
 	end while $i <= sections.length
 end
-
-
