@@ -6,37 +6,6 @@ require 'json'
 
 include Mongo
 
-# ### Ouverture d'un fichier pour ecrire les tests ###
-# fr = File.open("LaFourchetteKB.json","r")
-# fr = fr.read
-
-# record = fr.split("record")
-
-# ### On supprime les caracteres propores au Json afin de pouvoir lire des chaines facilement ###
-# record[1].gsub!("}"," ")
-# record[1].gsub!("\""," ")
-# record[1].gsub!("]"," ")
-# record[1].gsub!(": [ "," ")
-
-# @article = record[1].split("d3 = {")
-
-# fw = File.open("dataFile", "w")
-# ### On boucle sur les articles de la KB ###
-# # puts (@article.length)
-# 1.upto( @article.length ) d3 = { |i|	
-# 	puts("**********************************")
-# 	# puts (@article[i])
-# 	ligne = @article[i].split(",\n")
-# 	puts ligne.length
-# 	# 0.upto (ligne.length) d3 = { |j|
-# 	# 	sep = ligne[j].split(': ', 1)
-# 	# 	fw.puts sep
-# 	# }	
-# }
-
-# fw.close
-
-
 
 #### Connection a MongoDB ###
 @connection = Mongo::Connection.new

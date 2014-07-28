@@ -25,6 +25,8 @@ def get_connection
 	@db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
 	@db_connection
 end 
+
+puts "ok"
 #################################################
 ######################GET########################
 #################################################
