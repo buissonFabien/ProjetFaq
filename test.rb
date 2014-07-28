@@ -59,6 +59,11 @@ end
 
 get '/' do
 	"helloWorld"
+	db = get_connection
+	puts "Collections"
+	puts "==========="
+	collections = db.collection_names
+	puts collections
 end
 
 #################################################
