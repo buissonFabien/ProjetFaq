@@ -2,7 +2,7 @@ angular.module("WebSelfCare", [])
 .controller('getInfoCtrl', function($scope, $http) {
 
 
-  $http.get('http://localhost:4567/getData').success(function(data) {
+  $http.get('http://fathomless-brook-5557.herokuapp.com/getData').success(function(data) {
     $scope.information = data;
   });
   
