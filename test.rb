@@ -117,3 +117,8 @@ post '/post' do
 	   	# puts "**********************"
 	end while $i <= sections.length
 end
+
+post '/test' do
+	# puts request.body.string
+	puts "ok"
+end

@@ -237,6 +237,23 @@ angular.module("WebSelfCare", [])
 })
 
  
+.controller('postInfoCtrl', function($scope, $http) {
+    $scope.addArticle = function(titre) {
+    //   $http.post("http://localhost:4567/testPost").success(function(data, status) {
+    //     $scope.titre = titre;
+    //     data = $scope.titre;
+    //     console.log(data)
+    //     console.log("ok")
+    //   });
+    // }
+
+
+    $http.post("http://localhost:4567/test", titre).success(function (data){
+      console.log(data);
+    });
+  }
+})
+
 
 
 //************************************//
