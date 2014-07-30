@@ -248,7 +248,7 @@ angular.module("WebSelfCare", [])
     // }
 
 
-    $http.post("http://localhost:4567/test", titre).success(function (data){
+    $http.post("http://fathomless-brook-5557.herokuapp.com/test", titre).success(function (data){
       console.log(data);
     });
   }
