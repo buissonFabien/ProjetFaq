@@ -15,6 +15,7 @@ app.controller('getInfoCtrl', function($scope, $http, $modal, $log) {
   $scope.key = "https://dev2.easiware.fr/7.2/easicrm.5.0.dev";
   $scope.putUrl = "http://fathomless-brook-5557.herokuapp.com/put";
   $scope.getUrl = "http://fathomless-brook-5557.herokuapp.com/getData";
+  // http://fathomless-brook-5557.herokuapp.com/create
 
 
   $scope.CheminComplet = document.location.href;
