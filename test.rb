@@ -14,25 +14,61 @@ before do
    		   'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
 end
 
+def get_connection
+  return @db_connection if @db_connection
+  db = URI.parse('mongodb://fab:fab@ds053429.mongolab.com:53429/')
+  db_name = 'heroku_app27880644'
+  @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+  @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+  @db_connection
+end
+
+db = get_connection
+
+
+collections = db.collection_names
+puts collections
+last_collection = collections[-1]
+coll = db.collection(last_collection)
+
+puts "ok"
+
+
+
 ######################GET########################
 #
 #Passer la clefs en params pour récupérer uniquement la partie de la bdd du client concerné
+# get '/getData' do	
+# 	@connection = Mongo::Connection.new
+# 	url = request.query_string
+# 	url2 = url.split('=')
+# 	urlFinal = url2[1].gsub!("%2F", "/")
+# 	urlFinal = url2[1].gsub!("%23", "#")
+# 	puts urlFinal 
+# 	# "file:///C:/Users/Brendan/Desktop/devFaq/faq.html#"
+# 	# "https://dev2.easiware.fr/7.2/easicrm.5.0.dev"
+# 	@db = @connection.db('bddKB')
+# 	@coll = @db.collection('bddKB')
+# 	@kb = @coll.find({'key' => "https://dev2.easiware.fr/7.2/easicrm.5.0.dev"}).to_a.to_json
+# end
+
 get '/getData' do	
-	@connection = Mongo::Connection.new
-	url = request.query_string
-	url2 = url.split('=')
-	urlFinal = url2[1].gsub!("%2F", "/")
-	urlFinal = url2[1].gsub!("%23", "#")
-	puts urlFinal 
-	# "file:///C:/Users/Brendan/Desktop/devFaq/faq.html#"
-	# "https://dev2.easiware.fr/7.2/easicrm.5.0.dev"
-	@db = @connection.db('bddKB')
-	@coll = @db.collection('bddKB')
-	@kb = @coll.find({'key' => "https://dev2.easiware.fr/7.2/easicrm.5.0.dev"}).to_a.to_json
-	
+	# @connection = Mongo::Connection.new
+	# @db = @connection.db('bddTest')
+	# @coll = @db.collection('bddTest')
+	# # retourne toute la base au format Json
+	# data = @coll.find().to_a.to_json
+	db = get_connection
+	 
+	puts "Collections"
+	puts "==========="
+	collections = db.collection_names
+	puts collections
+	data = coll.find().to_a.to_json
 
 
 end
+
 
 # ######################POST#######################
 
