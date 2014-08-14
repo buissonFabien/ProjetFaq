@@ -1,11 +1,26 @@
-angular.module("WebSelfCare", [])
-.controller('getInfoCtrl', function($scope, $http) {
+
+//************************************//
+//**************Module****************//
+//************************************//
+var app = angular.module('WebSelfCare',['ui.bootstrap']);
+
+app.controller('getInfoCtrl', function($scope, $http, $modal, $log) {
 
 
-  $http.get('http://fathomless-brook-5557.herokuapp.com/getData').success(function(data) {
+
+
+  $scope.key = "https://dev2.easiware.fr/7.2/easicrm.5.0.dev";
+  $scope.putUrl = 'http://localhost:4567/put';
+  $scope.getUrl = 'http://localhost:4567/getData';
+
+
+  $scope.CheminComplet = document.location.href;
+  $http.get($scope.getUrl,{
+    params :{url :$scope.CheminComplet}
+  }).success(function(data) {
     $scope.information = data;
+    $scope.tab = $scope.information[0].value.articles
   });
-  
 
 
   // $scope.testGetData = function(text)
@@ -17,11 +32,18 @@ angular.module("WebSelfCare", [])
   //   return $scope.dataSearchText;
   // };
   
-  $scope.indice = true;
+  $scope.indice = false;
+  $scope.affViewsQuestion = true;
+  $scope.affViewsSearch = true;
+  $scope.affViewsPop = true;
+  $scope.affNoReply = true;
+  $scope.affForm = true;
+  $scope.affFormSearch = true;
+  $scope.afficheRepSearch = true;
 
-  $scope.setSelectedCat = function(category) {
-    $scope.selectedCategory = category;
-    $scope.catSelected = category.categorie;
+  $scope.setSelectedCat = function(categorie) {
+    $scope.selectedCategory = categorie;
+    $scope.catSelected = categorie.categorie;
     $scope.indice = false;    
     $scope.pop = false;
     $scope.affiche = false;
@@ -29,18 +51,60 @@ angular.module("WebSelfCare", [])
     $scope.afficheResSearch = false;
     $scope.afficheQuestion = false;
     $scope.aff = true;
+    $scope.affViewsQuestion = true;
+    $scope.affViewsSearch = true;
+    $scope.affViewsPop = true;
+    $scope.affNoReply = true;
+    $scope.affForm = true;
+    $scope.affFormSearch = true;
+
+
+
   };
 
   $scope.setSelectedQuestion = function(question) {
     $scope.selectedQuestion = question;
-    $scope.questionSelected = question.title;
     $scope.indice = true;
     $scope.pop = false;
     $scope.affiche = true;
     $scope.afficheRepSearch = true;
     $scope.afficheResSearch = false;
     $scope.aff = true;
+    
+    $scope.affViewsQuestion = false;
+    $scope.affViewsSearch = true;
+    $scope.affViewsPop = true;
+    $scope.affNoReply = false;
+  $scope.affForm = true;
+  $scope.affFormSearch = true;
 
+
+
+
+
+
+    var count = parseFloat(question.nbViews)
+    count += 1
+    $http({
+        method: 'POST',
+        url: $scope.putUrl,
+        data:  {
+                // key : $scope.CheminComplet
+                "key": $scope.key,
+                "articles" : [
+                    {
+                      "id" : question.id,
+                      "title" : question.title,
+                      "categorie" : question.categorie,
+                      "answer"  : question.answer,
+                      "rate"    : question.rate,
+                      "nbViews" : count,
+                      "popular": question.popular
+                    }
+                  ]
+                },
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    });
   };
 
   $scope.setSelectedQuestionSearch = function(questionSearch) {
@@ -52,12 +116,45 @@ angular.module("WebSelfCare", [])
     $scope.afficheRepSearch = false;
 
     $scope.aff = false;
+    $scope.affViewsQuestion = true;
+    $scope.affViewsSearch = false;
+    $scope.affViewsPop = true;
+    $scope.affNoReply = false;
+  $scope.affForm = true;
+  $scope.affFormSearch = true;
 
 
-    for(i=0; i<$scope.information.length; i++)
-      if(questionSearch == $scope.information[i].title)
-        $scope.getAnswer = $scope.information[i].answer;
+
+    for(i=0; i<$scope.tab.length; i++){
+      if(questionSearch == $scope.tab[i].title){
+        $scope.getAnswer = $scope.tab[i].answer;
+      }
+    }
+    var count = parseFloat(questionSearch.nbViews);
+    count += 1;
+
+     $http({
+        method: 'POST',
+        url: $scope.putUrl,
+        data:  {
+                "key": $scope.key,
+                "articles" : [
+                    {
+                      "id" : questionSearch.id,
+                      "title" : questionSearch.title,
+                      "categorie" : questionSearch.categorie,
+                      "answer"  : questionSearch.answer,
+                      "rate"    : questionSearch.rate,
+                      "nbViews" : count,
+                      "popular": questionSearch.popular
+                    }
+                  ]
+                },
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    });
+
   };
+
 
   $scope.setSelectedQuestionPop = function(questionPop) {
     $scope.selectedQuestionPop = questionPop;
@@ -67,50 +164,39 @@ angular.module("WebSelfCare", [])
     $scope.affiche = false;
     $scope.afficheResSearch = false;
     $scope.afficheRepSearch = true;
+    $scope.afficheQuestion = true;
 
+
+    $scope.affViewsQuestion = true;
+    $scope.affViewsSearch = true;
+    $scope.affViewsPop = false;
+    $scope.affNoReply = false;
+    $scope.affForm = true;
+    $scope.affFormSearch = true;
     $scope.aff = true;
+    var count = parseFloat(questionPop.nbViews)
+    count += 1
+    $http({
+        method: 'POST',
+        url: $scope.putUrl,
+        data:  {
+                "key": $scope.key,
+                "articles" : [
+                    {
+                      "id" : questionPop.id,
+                      "title" : questionPop.title,
+                      "categorie" : questionPop.categorie,
+                      "answer"  : questionPop.answer,
+                      "rate"    : questionPop.rate,
+                      "nbViews" : count,
+                      "popular": questionPop.popular
+                    }
+                  ]
+                },
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    });
 
   };
-
-
-  // $scope.sendData = function() {
-  //   var dataToPost = $scope.dataSend; /* PostData*/
-  //   var queryParams = {id:5};/* Query Parameters*/
-  //   $http.post("http://localhost:4567/post", dataToPost, queryParams)
-  //     .success(function(body, status, headers, config) {
-  //         console.log ("ok");
-  //     })
-  //     .error(function(serverResponse, status, headers, config) {
-  //       alert("failure");
-  //     })
-  // };
-  
- $scope.searchByKeywords = function(text) {
-    $scope.indice = false;    
-    $scope.pop = false;
-    $scope.afficheResSearch = true;
-    $scope.afficheRepSearch = false;
-
-    $scope.nombre = 0;
-    $scope.tabText = [];
-    $scope.result = [];
-    $scope.tabText = text.split(' ');
-    $scope.nombre = text.split(' ').length; 
-    $scope.tabKeyWord = [];
-    $scope.affiche = true;
-    //boucle sur les mots clefs tapés par l'utilisateur
-    for (var i = 0; i < $scope.tabText.length; i++) {
-      //boucle sur tout les articles
-      for (var j = 0; j < $scope.information.length; j++ ){
-        $scope.tabKeyWord = $scope.information[j].keywords.split(' ');
-        for (var k = 0; k < $scope.tabKeyWord.length; k++) {
-          if ($scope.tabText[i] == $scope.tabKeyWord[k] && $scope.tabText[i] != ' ')
-            $scope.result[j] = $scope.information[j].title;
-        }
-      }
-    }
-  };
-
 
 
 //************************************//
@@ -127,9 +213,17 @@ angular.module("WebSelfCare", [])
     $scope.pop = false;
     $scope.afficheResSearch = true;
     $scope.afficheRepSearch = true;
+
     $scope.affiche = false;
     $scope.afficheQuestion = true;
     $scope.aff = false;
+
+    $scope.affViewsQuestion = true;
+    $scope.affViewsSearch = true;
+    $scope.affViewsPop = true;
+    $scope.affNoReply = true;
+    $scope.affForm = true;
+    $scope.affFormSearch = true;
 
 
 
@@ -138,9 +232,9 @@ angular.module("WebSelfCare", [])
 
     for ( var i = 0; i < $scope.tabText.length; i++) {
       var df = 0;
-      for (var j = 0; j < $scope.information.length; j++ ) {
+      for (var j = 0; j < $scope.tab.length; j++ ) {
         var flags = 0;
-        $scope.tabAnswer = $scope.information[j].answer.split(' ');
+        $scope.tabAnswer = $scope.tab[j].answer.split(' ');
         for(var k = 0; k < $scope.tabAnswer.length; k++) {
           if ($scope.tabText[i] == $scope.tabAnswer[k] || $scope.tabText[i]+',' == $scope.tabAnswer[k]  ) {
             flags = 1;
@@ -152,16 +246,17 @@ angular.module("WebSelfCare", [])
 
       }
         temp = {'mot' : $scope.tabText[i] , 'df' : df};
+        console.log(temp)
         tabDf.push(temp);
     }
 
     //Pour chaque mot clefs:
     for (var i = 0; i < $scope.tabText.length; i++) {
       //Pour chaque articles:
-      for (var j = 0; j < $scope.information.length; j++ ){
+      for (var j = 0; j < $scope.tab.length; j++ ){
         $scope.tf = 0;
         //on récupère le champs "answer" qu'on split par l'espace pour isoler chaque mot:
-        $scope.tabAnswer = $scope.information[j].answer.split(' ');
+        $scope.tabAnswer = $scope.tab[j].answer.split(' ');
         //Pour chaque mots:
          for(var k = 0; k < $scope.tabAnswer.length; k++){
           //Si le mot clef == à un mot du tableau answer: (et de longueur sup a 3)
@@ -169,20 +264,26 @@ angular.module("WebSelfCare", [])
              ($scope.tabText[i] == $scope.tabAnswer[k] || $scope.tabText[i]+',' == $scope.tabAnswer[k] )) {
             
             $scope.tf += 1;
-            $scope.idArticle = $scope.information[j].id;
+            $scope.idArticle = $scope.tab[j].id;
           } 
         }
         
         for(var p = 0; p < tabDf.length; p++){
           if (tabDf[p].mot == $scope.tabText[i] && $scope.tf > 0 ) {
-            var poid = {'id' : $scope.information[j].id ,
-                        'title' : $scope.information[j].title ,
-                        'answer' : $scope.information[j].answer ,
+            var poid = {'id' : $scope.tab[j].id ,
+                        'title' : $scope.tab[j].title ,
+                        'answer' : $scope.tab[j].answer ,
                         'mot' : $scope.tabText[i] ,
+
+                        'categorie' : $scope.tab[j].categorie,
+                        'rate' : $scope.tab[j].rate,
+                        'nbViews' : $scope.tab[j].nbViews,
+                        'popular' : $scope.tab[j].popular,  
+
                         'tf' : $scope.tf , 
                         'df' : tabDf[p].df , 
-                        'idf' : Math.log($scope.information.length/tabDf[p].df), 
-                        'weight': $scope.tf*Math.log($scope.information.length/tabDf[p].df) };
+                        'idf' : Math.log($scope.tab.length/tabDf[p].df), 
+                        'weight': ($scope.tf*Math.log($scope.tab.length/tabDf[p].df+0.01))+((30*$scope.tab[j].nbViews)/100) };
 
             $scope.poids.push(poid); 
 
@@ -193,17 +294,22 @@ angular.module("WebSelfCare", [])
 
     //afficher les articles par poids comportant les mots clefs 
     $scope.tabPoid = [];
-    for (var k = 0; k < $scope.information.length; k++){
+    for (var k = 0; k < $scope.tab.length; k++){
       for (var i = 0; i < $scope.poids.length; i++){
         for (var j = i+1; j < $scope.poids.length; j++){
           var idA = $scope.poids[i].id;
-          if ($scope.information[k].id == idA ) {
+          if ($scope.tab[k].id == idA ) {
             if($scope.poids[i].id == $scope.poids[j].id){
               var pf = $scope.poids[i].weight + $scope.poids[j].weight;
               var poidFinal = {'id' : idA,
                                'weight': pf, 
-                               'title': $scope.information[k].title,
-                               'answer' : $scope.information[k].answer };
+                               'title': $scope.tab[k].title,
+                               'answer' : $scope.tab[k].answer,
+                               'categorie' : $scope.tab[k].categorie,
+                               'rate' : $scope.tab[k].rate,
+                               'nbViews' : $scope.tab[k].nbViews,
+                               'popular' : $scope.tab[k].popular
+                                };
               $scope.tabPoid.push(poidFinal);
             }
           } 
@@ -227,33 +333,52 @@ angular.module("WebSelfCare", [])
 
     console.log($scope.poids)
     $scope.tabFinalPoids = $scope.tabPoid.concat($scope.poids)
-
-    // console.log($scope.tabFinalPoids)
-
-
-
   };
 
-})
-
- 
-.controller('postInfoCtrl', function($scope, $http) {
-    $scope.addArticle = function(titre) {
-    //   $http.post("http://localhost:4567/testPost").success(function(data, status) {
-    //     $scope.titre = titre;
-    //     data = $scope.titre;
-    //     console.log(data)
-    //     console.log("ok")
-    //   });
-    // }
+  $scope.formContact= function(){
+    $scope.affForm = false;
+    $scope.affFormSearch = false;
 
 
-    $http.post("http://fathomless-brook-5557.herokuapp.com/test", titre).success(function (data){
-      console.log(data);
-    });
   }
-})
 
+  $scope.usefulAnswer = function(){
+    $scope.affForm = true;
+    $scope.affFormSearch = true;
+  }
+
+  $scope.returnFAQ = function(){
+    $scope.affForm = true;
+    $scope.affFormSearch = true;
+  }
+
+  $scope.submitContactForm = function(){
+    $scope.affForm = true;
+    $scope.affFormSearch = true;
+  }
+
+});
+
+
+
+
+// app.controller('postInfoCtrl', function($scope, $http) {
+//     $scope.addArticle = function(titre) {
+//       var temp = {
+//         title: titre
+//       }
+
+//       $http({
+//           method: 'POST',
+//           url: 'http://localhost:4567/test',
+//           data: titre,
+//           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+//       })
+
+
+//     }
+
+//   });
 
 
 //************************************//
@@ -261,7 +386,7 @@ angular.module("WebSelfCare", [])
 //************************************//
 
 //Remove doublons
-.filter('unique', function (){
+app.filter('unique', function (){
   return function (items, filterOn) {
     if (filterOn === false) {
       return items;
@@ -292,3 +417,4 @@ angular.module("WebSelfCare", [])
     return items;
   };
 });
+      

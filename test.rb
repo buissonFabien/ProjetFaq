@@ -1,124 +1,226 @@
 require 'rubygems'
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader' if development? 
 require 'mongo'
 require 'json/ext'
 require 'json'
-# require 'ruby-tf-idf'
 
 include Mongo
 
 before do
-   content_type :json    
+   content_type :json
    headers 'Access-Control-Allow-Origin'  => '*', 
-   		   'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST'],
-   		   'Access-Control-Allow-Headers' => 'accept, authorization, origin, Content-Type : json'
+   		   'Access-Control-Allow-Methods' => ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
+   		   'Access-Control-Allow-Headers' => 'accept, origin, Content-Type : json'
 end
 
-# set :port, 8080
-
-def get_connection
-  return @db_connection if @db_connection
-  db = URI.parse('mongodb://fab:fab@ds053429.mongolab.com:53429/')
-  db_name = 'heroku_app27880644'
-  @db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
-  @db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
-  @db_connection
-end
-
-db = get_connection
-
-puts "Collections"
-puts "==========="
-collections = db.collection_names
-puts collections
-last_collection = collections[-1]
-coll = db.collection(last_collection)
-
-puts "ok"
-#################################################
 ######################GET########################
-#################################################
+#
+#Passer la clefs en params pour récupérer uniquement la partie de la bdd du client concerné
 get '/getData' do	
-	# @connection = Mongo::Connection.new
-	# @db = @connection.db('bddTest')
-	# @coll = @db.collection('bddTest')
-	# # retourne toute la base au format Json
-	# data = @coll.find().to_a.to_json
-	db = get_connection
-	 
-	puts "Collections"
-	puts "==========="
-	collections = db.collection_names
-	puts collections
-	data = coll.find().to_a.to_json
-
-
-end
-
-
-get '/getSearchData/:text' do
 	@connection = Mongo::Connection.new
-	@db = @connection.db('bddTest')
-	@coll = @db.collection('bddTest')
+	url = request.query_string
+	url2 = url.split('=')
+	urlFinal = url2[1].gsub!("%2F", "/")
+	urlFinal = url2[1].gsub!("%23", "#")
+	puts urlFinal 
+	# "file:///C:/Users/Brendan/Desktop/devFaq/faq.html#"
+	# "https://dev2.easiware.fr/7.2/easicrm.5.0.dev"
+	@db = @connection.db('bddKB')
+	@coll = @db.collection('bddKB')
+	@kb = @coll.find({'key' => "https://dev2.easiware.fr/7.2/easicrm.5.0.dev"}).to_a.to_json
+	
 
-	data = @coll.find({:id => "2" }).to_a.to_json
-	puts data
-	# puts "parametres: #{params[:text]}"
+
 end
 
+# ######################POST#######################
 
-get '/' do
-	"helloWorld"
-	db = get_connection
-	puts "Collections"
-	puts "==========="
-	collections = db.collection_names
-	puts collections
-end
-
-#################################################
-######################POST#######################
-#################################################
-post '/post' do
-	# data = { id: params[:id], pwd: params[:pwd]}
-	# dd = data.to_a
-	# puts "Params   : ------ "+dd.to_json
+###############################################################################
+# Premier enregistrement creation de la partie du client
+# Format pour le /create :
+ # {
+ #   "key": "",
+ #   "value" : {
+ #     "siteid"  : "",
+ #     "articles" : []
+ #   }
+ # }
+post '/create' do
 	corp = request.body.string
 
-
 	@connection = Mongo::Connection.new
-	@db = @connection.db('bddTest')
-	@coll = @db.collection('bddTest')
+	@db = @connection.db('bddKB')
+	@coll = @db.collection('bddKB')
 
 	topObject = JSON.parse(corp)
-	sections = topObject ["value"]
-	# puts sections ["siteid"]
-	# puts (sections.length)
-	# puts sections
-	# puts "..............." 
-	articles = sections["KBarticles"]	
-	
-	$i=0
-	begin
-   		titre = articles [$i]
-		puts titre['title']
-		puts titre['category']
-		puts titre['keywords']
-		puts titre['answer']
-		@title	  = titre['title']
-		@category = titre['category']
-		@keywords = titre['keywords']
-		@answer   = titre['answer']
-		@rate     = titre['rate']
-		@coll.update({ id: '17' },{ '$push' => {'value.KBarticles' =>{ title: @title, category: @category, keywords: @keywords,
-																	   answer: @answer, rate: @rate }}})
-	   	$i += 1
-	   	# puts "**********************"
-	end while $i <= sections.length
+	key = topObject["key"]
+	sections = topObject["value"]
+	secId = sections["siteid"]
+	articles = topObject["articles"]
+	articles = sections["articles"]
+	d1 ={
+			:key => key,
+		  	:value => {
+		    	:siteId  => secId,
+		   		:articles => [
+		   			        
+		      	]
+			}
+		}
+	@coll.insert(d1)
 end
 
-post '/test' do
-	# puts request.body.string
-	puts "ok"
+###############################################################################
+# Ajout d'articles
+# Format pour le post /post :  {
+#   "key": "",
+#   "articles" : [
+#       {
+#         "id" : "",
+#         "title" : "",
+#         "categorie" : "",
+#         "answer"  : "",
+#         "rate"    : "",
+#         "nbViews" : "",
+#         "popular": ""
+#       }
+#     ]
+# }
+post '/post' do
+	corp = request.body.string
+
+	@connection = Mongo::Connection.new
+	@db = @connection.db('bddKB')
+	@coll = @db.collection('bddKB')
+
+	topObject = JSON.parse(corp)
+	key = topObject["key"]
+	articles = topObject["articles"]
+ 
+	$i=0
+	begin
+   		art = articles [$i]
+
+		@id	  	  = art['id']
+		@title	  = art['title']
+		@categorie = art['categorie']
+		@answer   = art['answer']
+		@rate     = art['rate']
+		@nbViews = art['nbViews']
+		@popular = art['popular']
+
+		@coll.update({ key: key },{ "$push" => {'value.articles' =>
+			{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
+
+	   	$i += 1
+	end while $i <= articles.length
+
+end
+
+
+
+###############################################################################
+# post '/test' do
+# 	corp = request.body.string
+# 	puts "post recu:"+corp
+# end
+
+
+# #################################################
+# ######################PUT########################
+# #################################################
+
+###############################################################################
+# Modification d'une fiche
+# format:  {
+#   "key": "key",
+#   "articles" : [
+#       {
+#         "id" : "idArticle a modifier",
+#         "title" : "",
+#         "categorie" : "",
+#         "answer"  : "",
+#         "rate"    : "",
+#         "nbViews" : "",
+#         "popular": ""
+#       }
+#     ]
+# }
+post '/put' do
+	corp = request.body.string
+
+	@connection = Mongo::Connection.new
+	@db = @connection.db('bddKB')
+	@coll = @db.collection('bddKB')
+
+	topObject = JSON.parse(corp)
+	key = topObject["key"]
+	articles = topObject["articles"]
+	$i=0
+	begin
+		art = articles [$i]
+
+		@id	  	  = art['id']
+		@title	  = art['title']
+		@categorie = art['categorie']
+		@answer   = art['answer']
+		@rate     = art['rate']
+		@nbViews = art['nbViews']
+		@popular = art['popular']
+
+		@coll.update({ "key" => key, "value.articles.id" => @id},
+			 {"$set" => {"value.articles.$.title" => @title,
+			 			 "value.articles.$.categorie" => @categorie,
+			 			 "value.articles.$.answer" => @answer,
+			 			 "value.articles.$.rate" => @rate,
+			 			 "value.articles.$.nbViews" =>  @nbViews,
+			 			 "value.articles.$.popular" =>  @popular} })
+	   	$i += 1
+	end while $i > articles.length
+end
+
+
+
+###############################################################################
+# Effacer un article 
+# Format :
+#  {
+#   "key": "client2",
+#   "articles" : [
+#       {
+#         "id" : "333",
+#         "title" : "test",
+#         "categorie" : "tes",
+#         "answer"  : "test",
+#         "rate"    : "test",
+#         "nbViews" : "test",
+#         "popular": "test"
+#       }
+#     ]
+# }
+put '/delete' do
+	corp = request.body.string
+
+	@connection = Mongo::Connection.new
+	@db = @connection.db('bddKB')
+	@coll = @db.collection('bddKB')
+
+	topObject = JSON.parse(corp)
+	key = topObject["key"]
+	articles = topObject["articles"]
+
+	$i = 0
+	begin
+		art = articles [$i]
+
+		@id	  	  = art['id']
+		@title	  = art['title']
+		@categorie = art['categorie']
+		@answer   = art['answer']
+		@rate     = art['rate']
+		@nbViews = art['nbViews']
+		@popular = art['popular']
+	    $i += 1
+	end while $i > articles.length
 end
