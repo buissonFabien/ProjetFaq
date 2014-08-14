@@ -85,9 +85,12 @@ end
 post '/create' do
 	corp = request.body.string
 
-	@connection = Mongo::Connection.new
-	@db = @connection.db('bddKB')
-	@coll = @db.collection('bddKB')
+	db = get_connection
+	 
+	puts "Collections"
+	puts "==========="
+	collections = db.collection_names
+	puts collections
 
 	topObject = JSON.parse(corp)
 	key = topObject["key"]
@@ -104,7 +107,7 @@ post '/create' do
 		      	]
 			}
 		}
-	@coll.insert(d1)
+	coll.insert(d1)
 end
 
 ###############################################################################
@@ -126,9 +129,12 @@ end
 post '/post' do
 	corp = request.body.string
 
-	@connection = Mongo::Connection.new
-	@db = @connection.db('bddKB')
-	@coll = @db.collection('bddKB')
+		db = get_connection
+	 
+	puts "Collections"
+	puts "==========="
+	collections = db.collection_names
+	puts collections
 
 	topObject = JSON.parse(corp)
 	key = topObject["key"]
@@ -146,7 +152,7 @@ post '/post' do
 		@nbViews = art['nbViews']
 		@popular = art['popular']
 
-		@coll.update({ key: key },{ "$push" => {'value.articles' =>
+		coll.update({ key: key },{ "$push" => {'value.articles' =>
 			{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
 
 	   	$i += 1
@@ -186,9 +192,12 @@ end
 post '/put' do
 	corp = request.body.string
 
-	@connection = Mongo::Connection.new
-	@db = @connection.db('bddKB')
-	@coll = @db.collection('bddKB')
+		db = get_connection
+	 
+	puts "Collections"
+	puts "==========="
+	collections = db.collection_names
+	puts collections
 
 	topObject = JSON.parse(corp)
 	key = topObject["key"]
@@ -205,7 +214,7 @@ post '/put' do
 		@nbViews = art['nbViews']
 		@popular = art['popular']
 
-		@coll.update({ "key" => key, "value.articles.id" => @id},
+		coll.update({ "key" => key, "value.articles.id" => @id},
 			 {"$set" => {"value.articles.$.title" => @title,
 			 			 "value.articles.$.categorie" => @categorie,
 			 			 "value.articles.$.answer" => @answer,
