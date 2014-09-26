@@ -53,11 +53,6 @@ puts "ok"
 # end
 
 get '/getData' do	
-	# @connection = Mongo::Connection.new
-	# @db = @connection.db('bddTest')
-	# @coll = @db.collection('bddTest')
-	# # retourne toute la base au format Json
-	# data = @coll.find().to_a.to_json
 	db = get_connection
 	 
 	puts "Collections"
@@ -75,13 +70,13 @@ end
 ###############################################################################
 # Premier enregistrement creation de la partie du client
 # Format pour le /create :
- # {
- #   "key": "",
- #   "value" : {
- #     "siteid"  : "",
- #     "articles" : []
- #   }
- # }
+# {
+#   "key": "",
+#   "value" : {
+#     "siteid"  : "",
+#     "articles" : []
+#   }
+# }
 post '/create' do
 	corp = request.body.string
 
@@ -112,7 +107,7 @@ end
 
 ###############################################################################
 # Ajout d'articles
-# Format pour le post /post :  {
+# Format pour le /post :  {
 #   "key": "",
 #   "articles" : [
 #       {
@@ -148,6 +143,7 @@ post '/post' do
 		@title	  = art['title']
 		@categorie = art['categorie']
 		@answer   = art['answer']
+
 		@rate     = art['rate']
 		@nbViews = art['nbViews']
 		@popular = art['popular']
@@ -234,17 +230,17 @@ end
 #   "key": "client2",
 #   "articles" : [
 #       {
-#         "id" : "333",
-#         "title" : "test",
-#         "categorie" : "tes",
-#         "answer"  : "test",
-#         "rate"    : "test",
-#         "nbViews" : "test",
-#         "popular": "test"
+#         "id" : "",
+#         "title" : "",
+#         "categorie" : "",
+#         "answer"  : "",
+#         "rate"    : "",
+#         "nbViews" : "",
+#         "popular": ""
 #       }
 #     ]
 # }
-put '/delete' do
+post '/delete' do
 	corp = request.body.string
 
 	@connection = Mongo::Connection.new
@@ -263,6 +259,7 @@ put '/delete' do
 		@title	  = art['title']
 		@categorie = art['categorie']
 		@answer   = art['answer']
+
 		@rate     = art['rate']
 		@nbViews = art['nbViews']
 		@popular = art['popular']
