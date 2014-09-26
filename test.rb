@@ -263,6 +263,13 @@ post '/delete' do
 		@rate     = art['rate']
 		@nbViews = art['nbViews']
 		@popular = art['popular']
+		coll.update({ "key" => key, "value.articles.id" => @id},
+			 {"$set" => {"value.articles.$.title" => @title,
+			 			 "value.articles.$.categorie" => @categorie,
+			 			 "value.articles.$.answer" => @answer,
+			 			 "value.articles.$.rate" => @rate,
+			 			 "value.articles.$.nbViews" =>  @nbViews,
+			 			 "value.articles.$.popular" =>  @popular} })
 	    $i += 1
 	end while $i > articles.length
 end
