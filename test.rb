@@ -188,7 +188,7 @@ end
 post '/put' do
 	corp = request.body.string
 
-		db = get_connection
+	db = get_connection
 	 
 	puts "Collections"
 	puts "==========="
@@ -241,17 +241,20 @@ end
 #     ]
 # }
 post '/delete' do
+
 	corp = request.body.string
 
-	@connection = Mongo::Connection.new
-	@db = @connection.db('bddKB')
-	@coll = @db.collection('bddKB')
+	db = get_connection
+	 
+	puts "Collections"
+	puts "==========="
+	collections = db.collection_names
+	puts collections
 
 	topObject = JSON.parse(corp)
 	key = topObject["key"]
 	articles = topObject["articles"]
-
-	$i = 0
+	$i=0
 	begin
 		art = articles [$i]
 
@@ -264,7 +267,8 @@ post '/delete' do
 		# @nbViews = art['nbViews']
 		# @popular = art['popular']
 		coll.update({ "key" => key, "value.articles.id" => @id},
-			 {"$set" => {"value.articles.$.title" => "",
+			 {"$set" => {"value.articles.id" => "",
+			 			"value.articles.$.title" => "",
 			 			 "value.articles.$.categorie" => "",
 			 			 "value.articles.$.answer" => "",
 			 			 "value.articles.$.rate" => "",
