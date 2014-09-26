@@ -45,11 +45,11 @@ puts "ok"
 # 	urlFinal = url2[1].gsub!("%2F", "/")
 # 	urlFinal = url2[1].gsub!("%23", "#")
 # 	puts urlFinal 
-# 	# "file:///C:/Users/Brendan/Desktop/devFaq/faq.html#"
+# 	# ""
 # 	# "https://dev2.easiware.fr/7.2/easicrm.5.0.dev"
 # 	@db = @connection.db('bddKB')
 # 	@coll = @db.collection('bddKB')
-# 	@kb = @coll.find({'key' => "https://dev2.easiware.fr/7.2/easicrm.5.0.dev"}).to_a.to_json
+# 	@kb = @coll.find({'key' => ""}).to_a.to_json
 # end
 
 get '/getData' do	
