@@ -256,20 +256,20 @@ post '/delete' do
 		art = articles [$i]
 
 		@id	  	  = art['id']
-		@title	  = art['title']
-		@categorie = art['categorie']
-		@answer   = art['answer']
+		# @title	  = art['title']
+		# @categorie = art['categorie']
+		# @answer   = art['answer']
 
-		@rate     = art['rate']
-		@nbViews = art['nbViews']
-		@popular = art['popular']
+		# @rate     = art['rate']
+		# @nbViews = art['nbViews']
+		# @popular = art['popular']
 		coll.update({ "key" => key, "value.articles.id" => @id},
-			 {"$set" => {"value.articles.$.title" => @title,
-			 			 "value.articles.$.categorie" => @categorie,
-			 			 "value.articles.$.answer" => @answer,
-			 			 "value.articles.$.rate" => @rate,
-			 			 "value.articles.$.nbViews" =>  @nbViews,
-			 			 "value.articles.$.popular" =>  @popular} })
+			 {"$set" => {"value.articles.$.title" => "",
+			 			 "value.articles.$.categorie" => "",
+			 			 "value.articles.$.answer" => "",
+			 			 "value.articles.$.rate" => "",
+			 			 "value.articles.$.nbViews" =>  "",
+			 			 "value.articles.$.popular" =>  ""} })
 	    $i += 1
 	end while $i > articles.length
 end
