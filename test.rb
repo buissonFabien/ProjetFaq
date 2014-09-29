@@ -134,8 +134,8 @@ post '/post' do
 	key = topObject["key"]
 	articles = topObject["articles"]
 
-	if coll.find( { key: key } )
-	{ 
+	# if coll.find( { key: key } )
+	# { 
 
 		$i=0
 		begin
@@ -155,7 +155,7 @@ post '/post' do
 
 		   	$i += 1
 		end while $i <= articles.length
-	}
+	# }
 	# else {
 	
 	# sections = topObject["value"]
