@@ -239,8 +239,8 @@ end
 #       }
 #     ]
 # }
-post '/delete' do
 
+post '/postAndCreate' do
 	corp = request.body.string
 
 	db = get_connection
@@ -248,31 +248,30 @@ post '/delete' do
 	puts "Collections"
 	puts "==========="
 	collections = db.collection_names
-	puts collections
 
 	topObject = JSON.parse(corp)
 	key = topObject["key"]
 	articles = topObject["articles"]
-	$i=0
-	begin
-		art = articles [$i]
 
-		@id	  	  = art['id']
-		# @title	  = art['title']
-		# @categorie = art['categorie']
-		# @answer   = art['answer']
+	if coll.find( {"key" : key})
+	{
+		$i=0
+		begin
+	   		art = articles [$i]
 
-		# @rate     = art['rate']
-		# @nbViews = art['nbViews']
-		# @popular = art['popular']
-		coll.update({ "key" => key, "value.articles.id" => @id},
-			 {"$set" => {"value.articles.id" => "",
-			 			"value.articles.$.title" => "",
-			 			 "value.articles.$.categorie" => "",
-			 			 "value.articles.$.answer" => "",
-			 			 "value.articles.$.rate" => "",
-			 			 "value.articles.$.nbViews" =>  "",
-			 			 "value.articles.$.popular" =>  ""} })
-	    $i += 1
-	end while $i > articles.length
+			@id	  	  = art['id']
+			@title	  = art['title']
+			@categorie = art['categorie']
+			@answer   = art['answer']
+
+			@rate     = art['rate']
+			@nbViews = art['nbViews']
+			@popular = art['popular']
+
+			coll.update({ key: key },{ "$push" => {'value.articles' =>
+				{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
+
+		   	$i += 1
+		end while $i <= articles.length
+	}
 end
