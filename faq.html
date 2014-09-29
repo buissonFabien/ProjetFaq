@@ -8,9 +8,10 @@
 	</head>
 	
 	<body ng-app='WebSelfCare'>
-		<div ng-controller="getInfoCtrl as app" id= "globalDiv">
+		
+		<div ng-controller="getInfoCtrl as app" id= "globalDiv" ng-disabled="isSomethingLoading">
 			
-			
+			<div class="loader" ng-show="showLoader"><h1>Chargement...</h1></div>
 			<!-- <div id="topFaq"><h1 class="title">Démonstration de la F.A.Q.</h1></div> -->
 			<div class="boDiv">
 
@@ -72,7 +73,7 @@
 				<div id="middleBox">
 					<div id="popArticle"> <h3 class="titlePop">Sujets importants</h3> </div>
 					<ul class="pop">
-						<li ng-repeat= "article in tab | filter: {popular:'1'}">
+						<li ng-repeat= "article in tab | filter: {popular:'1'} | orderBy: 'nbViews'">
 							<a href="#" class="question" ng-click="setSelectedQuestionPop(article)">
 								{{article.title}}
 							</a>

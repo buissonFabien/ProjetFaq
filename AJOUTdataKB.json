@@ -1,0 +1,551 @@
+{
+    "_id": {
+        "$oid": "53ec877ce4b055eb09584834"
+    },
+    "key": "https://dev2.easiware.fr/7.2/easicrm.5.0.dev",
+    "value": {
+        "articles": [
+            {
+                "id": "1",
+                "title": "Qui sommes-nous et que proposons-nous? ",
+                "categorie": "Decouvrez LaFourchette ",
+                "answer": "LaFourchette est un service de reservation de restaurants en ligne gratuit. Mais pas seulement ! Notre mission est de vous proposer un large choix de restaurants classes selon differents criteres pour vous offrir toujours plus d'inspiration. Profitez egalement de nombreuses promotions et d'un systeme ultra-fiable pour denicher et reserver les tables qui vous correspondent. LaFourchette existe aussi en Espagne : www.eltenedor.es et en Suisse : www.lafourchette.ch",
+                "rate": 0,
+                "nbViews": 100,
+                "popular": 1
+            },
+            {
+                "id": "2",
+                "title": "Quels restaurants trouve-t-on sur LaFourchette ?",
+                "categorie": "Restaurants",
+                "answer": "LaFourchette vous propose une offre variee de plus 7 000 restaurants de qualite, du bon petit bistrot du coin de larue aux plus grands restaurants. Une cuisine de qualite, un service efficace et un cadre agreable doivent etre au rendez-vous de toutes vos sorties au restaurant, du brunch entre amis au diner romantique, en passant par le dejeuner d'affaires.",
+                "rate": 0,
+                "nbViews": 81,
+                "popular": 1
+            },
+            {
+                "id": "3",
+                "title": "Comment sont-ils selectionnes ?",
+                "categorie": "Restaurants",
+                "answer": "Afin de vous garantir une offre variee et fiable, les restaurants doivent tous etre reservables et proposer une prestation de qualite, pour figurer sur LaFourchette. D'ailleurs, la plupart sont cites ou recommandes par un guide gastronomique. Mais sur LaFourchette, le critique c'est vous ! En deposant un avis apres avoir reserve, c'est vous qui guidez les internautes pour les aider a faire leur choix.",
+                "rate": 0,
+                "nbViews": 73,
+                "popular": 1
+            },
+            {
+                "id": "4",
+                "title": "A quoi correspond la mention de prix'a partir de' ?",
+                "categorie": "Restaurants",
+                "answer": "Sur chaque fiche restaurant, la mention 'a partir de' vous permet de connaitre le montant minimal d'une addition a regler dans cet etablissement. Il est aussi visible dans la liste des resultats,sous le type de cuisine. Le montant est calcule a partir des prix indiques par le restaurateur, sur la base entree/plat ou plat/dessert, hors boisson et prend en compte les offres disponibles. Il ne peut donc pas etre considere comme contractuel mais vous donne un bon apercu du nombre de piecettes a debourser. ",
+                "rate": 0,
+                "nbViews": 72,
+                "popular": 1
+            },
+            {
+                "id": "5",
+                "title": "Vous ne trouvez pas le restaurant que vous souhaitez ? Faites-nous part de votre suggestion !",
+                "categorie": "Restaurants",
+                "answer": "Vous l'avez cherche sur LaFourchette mais votre restaurant prefere n'apparait pas dans la liste des resultats ? Faites nous part de vos suggestions, nous sommes preneurs de vos bonnes adresses ! Pour cela, il vous suffit de cliquer sur le lien \"Vous souhaitez peut-etre nous suggerer une bonne adresse ?\" qui apparait lorsqu'aucun resultat ne correspond a votre recherche. Vous pouvez egalement nous ecrire en remplissant le formulaire qui se trouve dans l'onglet \"Contactez-nous\" en bas de page. Nous lisons tous vos messages !",
+                "rate": 0,
+                "nbViews": 53,
+                "popular": 0
+            },
+            {
+                "id": "6",
+                "title": "Comment fonctionne la recherche sur LaFourchette ?",
+                "categorie": "Sur la recherche",
+                "answer": "Pour trouver un restaurant sur Lafourchette, il vous suffit de completer les champs situes en haut de chaque page :Le champ \" ou ? \" : vous pourrez ainsi chercher un restaurant selon votre ville, le nom du restaurant, une adresse, un code postal, un quartier ou meme un metro. Le champ \" quand ? \" : en completant les champs \" date \", \" heure \" et \" nombre de personnes \", vous pourrez trouver rapidement un restaurant disponible en fonction de vos criteres. Vous n'avez pas encore fixe de date ? Selectionnez \" sans date precise \", dans le champ \" date \" en bas du calendrier.ta tout moment vous pourrez affiner votre recherche en accedant a l'ensemble des filtres situes, dans la colonne a gauche de la page de resultats. Ainsi, une liste de restaurants vous sera proposee en fonction du type de cuisine, de la promotion, du prix par personne, de sa note, des services que vous attendez ou meme du type de restaurant que vous souhaitez.",
+                "rate": 0,
+                "nbViews": 23,
+                "popular": 0
+            },
+            {
+                "id": "7",
+                "title": "Les restaurants proposes sont-ils disponibles pour mes criteres ?",
+                "categorie": "Sur la recherche",
+                "answer": "En completant les champs \" date \" \" heure \" et \" nombre de personnes \" situes en haut de page, vous accedez a une liste de restaurants disponibles pour les criteres choisis. Si vous n'avez pas rempli ces criteres, les disponibilites des restaurants ne seront pas prises en compte.",
+                "rate": 0,
+                "nbViews": 5,
+                "popular": 0
+            },
+            {
+                "id": "8",
+                "title": "Pourquoi se geolocaliser ? A quoi sert le picto \" ma position actuelle\" du moteur de recherche ?",
+                "categorie": "Sur la recherche",
+                "answer": "Se geolocaliser permet d'obtenir la liste des restaurants les plus proches de l'endroit ou l'on se trouve : Une icone en forme de cible renvoyant a \" Ma position actuelle \" se trouve dans le champ \" ou \" du moteur de recherche. Il permet de se geolocaliser et donc d'avoir en un clin d'oeil tous les restaurants autour de soit.Mais pour fonctionner, cette geolocalisation doit etre activee ! Pour cela, il faut cliquer sur \" Partager sa localisation \" dans le pop-up qui s'ouvre suite a votre clic sur cette meme icone.",
+                "rate": 0,
+                "nbViews": 5,
+                "popular": 0
+            },
+            {
+                "id": "9",
+                "title": "Quels sont les critères du ' Tri pertinence ' dans les listes de résultats ?",
+                "categorie": "Sur la recherche",
+                "answer": "Le 'Tri pertinence ' vous permet d'accéder directement au meilleur de LaFourchette, a travers une sélection d'adresses définie selon plusieurs critères essentiels : la note, le nombre d'avis, le niveau de promotion et sa réputation dans les guides. Cependant, vous pouvez tout a fait choisir un autre type de tri (meilleurs notes, distance par rapport a un point donne, etc.)",
+                "rate": 0,
+                "nbViews": 46,
+                "popular": 1
+            },
+            {
+                "id": "10",
+                "title": "Suite a votre recherche, vous desirez plus de resultats ?",
+                "categorie": "Sur la recherche",
+                "answer": "Une fois lancee votre recherche en fonction d'une adresse, d'une ville, d'un code postal ou encore d'un metro, nous adaptons le rayon de la recherche afin que vous ayez un minimum de restaurants proposes. Cependant, si vous le souhaitez, vous pouvez reduire cette distance ou au contraire l'augmenter pour avoir plus de resultats. Pour cela, deplacez le curseur du \" Rayon de recherche \" dans la colonne de gauche de votre page de resultats.",
+                "rate": 0,
+                "nbViews": 8,
+                "popular": 0
+            },
+            {
+                "id": "11",
+                "title": "Le format liste ne vous convient pas?",
+                "categorie": "Sur la recherche",
+                "answer": "Vous pouvez facilement avoir une vue d'ensemble des restaurants sur une carte en cliquant sur \" Voir sur un plan \", en haut a gauche de la page. Et vous pourrez affiner votre recherche de la meme maniere qu'avec le format liste !",
+                "rate": 0,
+                "nbViews": 6,
+                "popular": 0
+            },
+            {
+                "id": "12",
+                "title": "Comment rechercher par type de cuisine ?",
+                "categorie": "Quelques astuces sur la recherche",
+                "answer": "Apres avoir fait votre recherche, il vous suffit de selectionner le type de cuisine que vous souhaitez dans la colonne a gauche de la liste de restaurants proposes.",
+                "rate": 0,
+                "nbViews": 11,
+                "popular": 0
+            },
+            {
+                "id": "13",
+                "title": "Comment rechercher un restaurant avec une promotion ?",
+                "categorie": "Quelques astuces sur la recherche",
+                "answer": "Vous pouvez trier vos resultats par\" Promotions \" depuis le menu deroulant, en haut a droite de la page. Cela vous permet d'afficher les meilleures promotions parmi les adresses proposees. Vous pouvez aussi choisir le type de promotion qui vous interesse dans la colonne a gauche de la liste de restaurants ou meme filtrer vos restaurants pour n'afficher que ceux qui proposent une reduction et ce, en cochant la case \" Toutes les promotions \".",
+                "rate": 0,
+                "nbViews": 12,
+                "popular": 0
+            },
+            {
+                "id": "14",
+                "title": "Comment retrouver des restaurants avec une ambiance particuliere ?",
+                "categorie": "Quelques astuces sur la recherche",
+                "answer": "Comme pour le type de cuisine ou la promotion, il vous suffit de selectionner l'ambiance que vous souhaitez dans la categorie \" Cadre \" ou \" Type de restaurant \", dans la colonne a gauche de la liste de restaurants proposes.",
+                "rate": 0,
+                "nbViews": 29,
+                "popular": 0
+            },
+            {
+                "id": "15",
+                "title": "J'ai une occasion speciale. Avez-vous des restaurants qui acceptent les evenements ?",
+                "categorie": "Quelques astuces sur la recherche",
+                "answer": "Oui, vous pouvez facilement trouver un restaurant pour une occasion spéciale dans la categorie \" Pour un evenement\", situee en bas de la colonne a gauche de la liste de restaurants proposes.",
+                "rate": 0,
+                "nbViews": 26,
+                "popular": 0
+            },
+            {
+                "id": "16",
+                "title": "Pas d'inspiration ? Laissez-vous guider par nos selections !",
+                "categorie": "Quelques astuces sur la recherche",
+                "answer": "Vous vivez dans une grande ville ? Alors rendez-vous sur la page principale de votre ville et laissez-vous tenter par nos encarts \" Les restaurants les mieux notes \", \" Les meilleurs promotions \", \" Les must de LaFourchette \"... et beaucoup d'autres !",
+                "rate": 0,
+                "nbViews": 15,
+                "popular": 0
+            },
+            {
+                "id": "17",
+                "title": "Qui bénéficie du programme de fidélité ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Tous les clients. Vous n’avez rien à faire pour en bénéficier, l’inscription se fait de manière automatique au moment de votre première réservation. Dès cette première réservation, vous commencez à cumuler des points, les Yums (tellement mmmh !). Et bien sûr, le programme est entièrement gratuit !",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "18",
+                "title": "A quoi me donne droit le programme de fidélité ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Avec le programme de fidélité, vous cumulez des Yums à chaque réservation, qui vous donnent ensuite droit à une remise fidélité sur votre prochain repas réservé via lafourchette dans un des restaurants partenaires du programme.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "19",
+                "title": "Comment gagner des Yums ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Chaque réservation passée et honorée vous permet de gagner 100 Yums, quel que soit le restaurant choisi et réservé sur lafourchette (ou eltenedor ou thefork). Vous pouvez également gagner des Yums additionnels en participant à des opérations spéciales organisées régulièrement par lafourchette.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "20",
+                "title": "Est-ce que le nombre de Yums gagnés dépend du nombre de personnes ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Non, vous gagnez 100 Yums à chaque réservation, quel que soit le nombre de couverts de cette réservation.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "21",
+                "title": "Dans quels restaurants puis-je cumuler des Yums ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Dans tous les restaurants ! Vous cumulez 100 Yums pour toute réservation effectuée via lafourchette, quel que soit le restaurant réservé et le support utilisé pour réserver (site internet, site mobile, applications mobiles, tablette).",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "22",
+                "title": "Combien me faut-il de Yums pour obtenir une remise ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": " Le nombre de Yums nécessaires à l’obtention d’une remise fidélité est de minimum mille Yums. Mais vous pouvez aussi attendre d’avoir cumulé deux mille Yums pour obtenir une remise fidélité plus importante. Selon le pays du restaurant dans lequel vous réservez, le montant de la remise est de Restaurant en France Restaurant en Espagne",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "23",
+                "title": "Comment consulter mon solde de Yums ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Votre solde de Yums est accessible depuis votre compte client, rubrique « Mon espace fidélité», ainsi que le détail des Yums cumulés dans les trois derniers mois. Si vous n’avez pas encore de compte lafourchette, il suffit d’en créer un, en cliquant sur le bouton d’inscription, en haut à droite sur la page d’accueil du site lafourchette, et en haut à gauche sur les applis mobile. Si vous avez déjà effectué des réservations auparavant, inscrivez-vous en utilisant la même adresse email que celle utilisée lors de vos précédentes réservations. Vous accéderez ainsi à votre solde de Yums et votre relevé détaillé",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "24",
+                "title": "J’ai fait plusieurs réservations sans me créer de compte, les Yums sont-ils perdus ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Bonne nouvelle ! Lorsque vous vous créez un compte lafourchette, nous recréditons automatiquement, sur cette même adresse email, l’ensemble des Yums correspondant aux réservations que vous avez honorées depuis le lancement du programme.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "25",
+                "title": "J’ai réservé et je ne vois pas les Yums correspondants dans mon espace fidélité, pourquoi ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Les Yums sont validés dans les 7 jours suivant la date du repas. Lorsque vous faites une réservation via lafourchette, les Yums correspondant sont donc en attente de validation jusqu’au 7ème jour suivant la date de repas, le temps pour nous de vérifier que vous avez bien honoré votre réservation.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "26",
+                "title": "Puis-je cumuler des Yums si je réserve sur le service lafourchette d’un autre pays ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Oui, le programme de fidélité est international, il est disponible dans tous les pays où lafourchette a développé son service (France, Espagne, Suisse). Dans chaque pays, une réservation rapporte 100 Yums, et une remise fidélité est obtenue au bout de 1000 Yums cumulés. Toutefois, le montant de la remise fidélité varie en fonction du pays du restaurant.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "27",
+                "title": "J’ai cumulé 1000 Yums, comment bénéficier de ma remise ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Rien de plus simple. Lors de votre prochaine réservation, vous choisissez un des restaurants participants au programme (restaurants identifiables grâce à un picto « Ici, dépensez vos Yums »). Au moment où l’on vous demande de confirmer votre réservation, il suffit de cocher la case « j'utilise 1000 Yums pour bénéficier d'une remise fidélité de 10€ pour ce repas dans ce restaurant. ». N’oubliez pas que vous pouvez aussi attendre d’avoir cumulé 2000 Yums pour bénéficier d’une remise de 25€ !",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "28",
+                "title": "Dans quels restaurants puis-je dépenser mes Yums ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Vous pouvez dépenser vos Yums dans tous les restaurants participants au programme, dans chacun des pays où les services lafourchette sont implantés. La liste des restaurants participants de chaque pays est consultable depuis la page de présentation du programme de ce pays et l’espace fidélité dans votre compte client. Vous pouvez aussi filtrer un résultat de recherche sur les restaurants participants au programme de fidélité, en cochant « programme de fidélité » dans les filtres disponibles à gauche de la page, ou encore repérer ces restaurants grâce au picto « ici dépensez vos Yums ». Vous pouvez bien sûr dépenser vos Yums dans un restaurant situé dans un pays différent du vôtre. La mécanique pour bénéficier de la remise fidélité est la même, seul le montant de la remise peut être différent d’un pays à l’autre. Ex : je suis un client français qui effectue habituellement des réservations sur le site français lafourchette, et j’ai cumulé 1000 Yums. Je peux choisir de faire une réservation dans un restaurant suisse qui participe au programme, en cochant sur la case d’utilisation de ma remise fidélité. La différence est qu’en Suisse, la remise fidélité pour 1000 Yums cumulés est de CHF 15.- et non 10€.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "29",
+                "title": "Ma remise fidélité est-elle compatible avec les éventuelles promotions du restaurant ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Oui, bien sûr ! Tout restaurant qui participe au programme peut également proposer des promotions. Si vous choisissez un restaurant qui participe au programme et qui offre une promotion à la date qui vous intéresse, il vous suffit de réserver en sélectionnant la promotion, et en cliquant sur la case pour utiliser votre remise fidélité. Lorsque vous vous rendrez au restaurant, la promotion sera automatiquement appliquée par le restaurateur, ainsi que la remise fidélité de 10€.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "30",
+                "title": "Les Yums ont-ils une durée de validité ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Les Yums sont valides jusqu’au 31 décembre de l’année suivant l’année d’acquisition. Ainsi tous les Yums acquis en 2014 sont valides jusqu’au 31/12/2015.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "31",
+                "title": "J’ai 2000 Yums ou plus, puis-je cumuler 2 remises ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Une seule remise (la plus avantageuse) est acceptée par table et par réservation. Si vous avez cumulé plus de 2000 Yums, vous bénéficiez d’une remise fidélité de 25€ (la plus avantageuse), et vous pourrez ensuite bénéficier de vos éventuelles autres remises, toujours dans la limite d’une seule remise fidélité par table et par réservation.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "32",
+                "title": "J’ai 1000 Yums, je viens de faire une réservation en cochant la case d’utilisation de ma remise fidélité. Mes 1000 Yums ont directement été déduits de mon solde de Yums dans mon Espace fidélité, alors que je ne suis pas encore allé au restaurant, c’est normal ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Pas de panique, c’est normal ! Cette action nous permet d’éviter que certains malins utilisent leur remise fidélité plusieurs fois. Mais pas d’inquiétude : si vous ou le restaurant annulez la réservation, les Yums utilisés pour la remise fidélité vous seront rendus immédiatement, et vous pourrez à nouveau bénéficier de votre remise fidélité dans votre prochain restaurant.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "33",
+                "title": "Si j’annule ma réservation, que se passe-t-il ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "S’il s’agit d’une réservation sans utilisation de Yums,les cents Yums liés à cette réservation seront automatiquement annulés. S’il s’agit d’une réservation sur laquelle vous aviez demandé à utiliser des Yums pour bénéficier d’une remise fidélité, pas de panique : l’ensemble des Yums utilisés sera recrédité sur votre compte, et vous pourrez à nouveau bénéficier d’une remise fidélité pour votre prochaine réservation. Attention, si par contre vous n’honorez pas votre réservation sans nous avoir prévenus à l’avance (en annulant cette réservation), alors vos Yums seront définitivement perdus.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "34",
+                "title": "Si j’effectue une réservation avec remise fidélité et que je ne me rends pas au restaurant, sans prévenir ni lafourchette ni le restaurant, que se passe-t-il ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Malheureusement, votre remise fidélité est perdue. En effet, il est essentiel d’annuler votre réservation si vous ne pouvez plus vous rendre au restaurant, afin que nous puissions continuer à garantir un service de qualité. La prochaine fois, pensez donc à annuler, c’est très simple ! - Cliquez sur le bouton « annuler ma réservation » en bas de l’email de confirmation de réservation. Ou rendez-vous sur votre compte, en ligne ou depuis votre mobile, et cliquez sur « Mes Réservations », puis « Annulez votre réservation »",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "35",
+                "title": "Dois-je annoncer au restaurateur que je bénéficie d’une remise fidélité ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "La transmission de votre réservation au restaurateur est automatique. Celui-ci sera bien informé de la remise fidélité à appliquer sur votre addition, vous n’avez rien à faire. Veillez tout de même à vous munir de l’email de confirmation de réservation (mentionnant la remise), celui-ci pourrait vous être demandé pour vérification.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "36",
+                "title": "Mon addition est de 22€ et j’ai une remise de 25€, le restaurateur va-t-il me donner de l’argent ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Hélas, non. Si le montant de l’addition est inférieur au montant de la remise, la différence ne vous sera pas rendue.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "37",
+                "title": "Que se passe-t-il si le restaurant refuse d’appliquer ma remise fidélité ?",
+                "categorie": "Découvrez tous les avantages de notre programme de fidélité",
+                "answer": "Tout d’abord, nous vous prions d’excuser ce désagrément. Nous vous conseillons dans un premier temps de bien vérifier que votre réservation était associée à une remise fidélité (information disponible dans votre email de confirmation de réservation). Si tel est bien le cas, nous vous invitons à contacter notre Service Clients au +33 (0)1 83 77 77 00, ou via le formulaire de contact, pour trouver, ensemble, une solution.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "38",
+                "title": "Comment être sûr que ma réservation sera bien enregistrée par le restaurant ?",
+                "categorie": "Sur la réservation en ligne : pas de stress, on s'occupe de tout !",
+                "answer": "Lorsque vous réservez une table sur LaFourchette, la disponibilité est automatiquement vérifiée en temps réel. À partir du moment où nous vous confirmons la réservation, vous pouvez être sûr que votre table vous attend. L'e-mail et le SMS de confirmation sont là pour vous assurer que la réservation est bien transmise ! Pas besoin d'appeler le restaurant.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "39",
+                "title": "Dois-je indiquer que j'ai réservé sur LaFourchette à mon arrivée au restaurant ?",
+                "categorie": "Sur la réservation en ligne : pas de stress, on s'occupe de tout !",
+                "answer": "Cela n'est pas nécessaire puisque le restaurateur a été averti automatiquement de votre réservation en ligne. Mais si vous le souhaitez, vous pouvez présenter le SMS de confirmation que vous avez reçu, pour attester de votre réservation.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "40",
+                "title": "Pourquoi certaines réservations ne sont-elles pas confirmées immédiatement ? Vais-je recevoir une confirmation à temps ? Dois-je appeler le restaurant pour confirmer la réservation ?",
+                "categorie": "Sur la réservation en ligne : pas de stress, on s'occupe de tout !",
+                "answer": "Pour les grandes tables ou les jours de fortes affluences, nous ne pouvons parfois pas confirmer la disponibilité immédiatement. Votre réservation est alors en attente de confirmation, et nous nous engageons à vous répondre dans les 2 heures : vous recevrez alors un e-mail et un SMS de confirmation.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "41",
+                "title": "J'ai une demande spéciale (terrasse, table au calme, zone fumeur...) : comment la transmettre ?",
+                "categorie": "Sur la réservation en ligne : pas de stress, on s'occupe de tout !",
+                "answer": "Sur le dernier écran de réservation, remplissez le champ « Demande spéciale à l'intention du restaurateur » et celle-ci lui sera transmise. Cependant, LaFourchette ne peut vous garantir que votre demande sera systématiquement prise en compte, notamment pour des raisons de place et de disponibilité.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "42",
+                "title": "Je n'ai pas reçu mon mail de confirmation. Que faire ?",
+                "categorie": "Sur la réservation en ligne : pas de stress, on s'occupe de tout !",
+                "answer": "Il s'est peut-être glissé dans vos SPAMS ou courriers indésirables ! Pensez à vérifier ce dossier et à ajouter « contact@lafourchette.com » dans votre carnet d'adresses ou dans votre liste d'expéditeurs autorisés.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "43",
+                "title": "50% sur l'addition : comment est-ce possible ?",
+                "categorie": "Sur les promotions",
+                "answer": "Avec nous, ce sont les restaurateurs qui décident de proposer une promotion, en réservant une partie de leurs tables pour les membres LaFourchette. Cela leur permet de faire salle comble lors de périodes creuses et de vous régaler à prix réduits. Tout le monde y gagne !",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "44",
+                "title": "Tous les restaurants sur LaFourchette sont-ils en promotion ?",
+                "categorie": "Sur les promotions",
+                "answer": "Non, cela dépend du restaurant, s'il souhaite optimiser son activité ou élargir sa clientèle. Regardez si une promotion figure en orange dans l'encart de droite (au-dessus du bouton « Réserver ») de la fiche restaurant ou dans la rubrique « Promotions » en bas de la fiche restaurant. Vous pouvez également affiner votre recherche en utilisant les filtres de la catégorie « Promotions » à gauche de votre liste de résultats.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "45",
+                "title": "Tous les restaurants en promotion sur LaFourchette sont-ils à -50%?",
+                "categorie": "Sur les promotions",
+                "answer": "Non. Nous vous proposons la meilleure offre possible sur une sélection de restaurants : des -50% bien sûr, mais aussi des -40% et bien d'autres occasions de vous faire plaisir au restaurant !",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "46",
+                "title": "La promotion est-elle valable sur TOUTE l'addition ? Est-ce un menu imposé ?",
+                "categorie": "Sur les promotions",
+                "answer": "Pas toujours ! Il existe plusieurs types de promotions : sur tous les plats de la carte, boissons comprises ou non, sur les menus, sur toute l'addition, etc. Pour connaître le détail exact d'une promotion, consultez les mentions qui figurent sous le titre de la promotion.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "47",
+                "title": "Comment bénéficier de la promotion ?",
+                "categorie": "Sur les promotions",
+                "answer": "Il vous suffit de réserver en ligne en respectant les critères de validité de la promotion (jour, heure, nombre de personnes). Les validités de la promotion apparaissent en jaune dans le module de réservation. Si vous sélectionnez des critères excluant la promotion, un pop-up vous avertit. Pas d'erreur possible !",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "48",
+                "title": "Dois-je payer en ligne pour en bénéficier ?",
+                "categorie": "Sur les promotions",
+                "answer": "Absolument pas ! Toute réservation sur LaFourchette est gratuite, avec ou sans promotion et pas besoin de prépayer. Nous ne vous demandons jamais votre numéro de carte bleue.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "49",
+                "title": "Dois-je prévenir que je viens de LaFourchette pour obtenir la promotion ? Dois-je réclamer la promotion au restaurateur ?",
+                "categorie": "En arrivant au restaurant",
+                "answer": "Non ! Lorsque vous réservez, le restaurateur est averti qu'il s'agit d'une réservation avec promotion et celle-ci est automatiquement appliquée sur votre addition. Vous pouvez donc inviter vos ami(e)s en toute discrétion ! Cependant le restaurateur peut oublier d'appliquer la promotion. Aucun souci, rappelez-lui au moment de régler. Si vous constatez cette erreur trop tard, vous pouvez nous le signaler afin que nous contactions le restaurant.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "50",
+                "title": "Les clients bénéficiant d'une promotion reçoivent-ils le même service que les autres clients ? (placement, quantité dans l'assiette, etc...)",
+                "categorie": "En arrivant au restaurant",
+                "answer": "Oui, tous les clients profitent de la même prestation. Et puisque vous pouvez déposer votre avis qui influencera le choix d'autres internautes, la plupart des restaurateurs sont très vigilants et chouchoutent les clients LaFourchette !",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "51",
+                "title": "N'importe qui peut-il déposer un avis sur LaFourchette ?",
+                "categorie": "Sur les avis ",
+                "answer": "Pas du tout ! Seuls les internautes ayant réservé par LaFourchette et honoré leur réservation peuvent déposer un avis. Un vrai gage de fiabilité et de crédibilité sur les notes et avis déposés sur le site.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "52",
+                "title": "Comment déposer un avis ?",
+                "categorie": "Sur les avis ",
+                "answer": "Une fois votre repas terminé, vous recevez un email vous invitant à déposer votre avis sur votre expérience au restaurant. Vous pouvez alors remplir le questionnaire directement depuis l'email ou à partir de votre compte, depuis le lien à côté de votre réservation, dans la page « Mes réservations ».",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "53",
+                "title": "Comment est calculée la note que j'attribue au restaurant ?",
+                "categorie": "Sur les avis ",
+                "answer": "Lorsque vous déposez un avis, vous notez 3 critères sur une échelle de 1 à 10 : la cuisine, le service et le cadre et l'ambiance.La note finale attribuée au restaurant est la moyenne de ces notes, calculée de la manière suivante :Cuisine 50% Service 25% Cadre et ambiance 25% Vous pouvez aussi donner votre avis sur le rapport qualité-prix, le niveau sonore, le temps d'attente et préciser si vous recommanderiez cette adresse. Enfin, dans un souci de représentativité, seules les notes des 12 derniers mois sont prises en compte.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "54",
+                "title": "Toutes les notes sont-elles publiées ?",
+                "categorie": "Sur les avis ",
+                "answer": "Oui à partir du moment où la réservation a été honorée. Dès que vous déposez votre avis, la note est publiée. Si vous ne vous êtes pas présenté au restaurant, la note n'apparaîtra pas. Si vous avez laissé un commentaire, celui-ci est toujours relu par nos équipes avant publication. Par souci de représentativité, 3 avis au minimum doivent être déposés pour apparaître sur la fiche du restaurant.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "55",
+                "title": "Pourquoi mon commentaire écrit n'est-il pas publié ?",
+                "categorie": "Sur les avis ",
+                "answer": "Tous les commentaires sont publiés sur LaFourchette à l'exception des propos injurieux ou non conformes aux Mentions Légales du site. Cependant, votre avis, même non publié, est toujours adressé au restaurateur concerné, afin de l'en informer. Quant à la note, elle est automatiquement publiée sur la fiche du restaurant.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "56",
+                "title": "Gourmet, Fin gourmet, Gastronome... A quoi correspondent ces profils d'utilisateurs ?",
+                "categorie": "Sur les avis ",
+                "answer": "Pour vous aider dans votre choix,vous pouvez repérer les avis d'experts en identifiant le profil des membres LaFourchette, défini en fonction du nombre d'avis qu'ils ont déposés sur le site :Nb d'avis déposés Profil Définition1 1° avis Un seul avis déposé, mais pourrait vite devenir gourmet Entre 2 et 4 Gourmet Commence à connaître son sujet Entre 5 et 9 Fin gourmet La fine fleur de LaFourchette : toujours de bon conseil 10 et + Gastronome Attention, avis d'expert ! Vous pouvez aussi accéder à l'historique des avis déposés par un internaute, en cliquant sur le lien sous son profil. Une précieuse source d'inspiration pour comparer vos goûts et trouver votre bonheur !Et vous, quel est votre profil ? Pour le savoir, rendez-vous sur la page « Mes réservations » dans la rubrique « Mon compte ». Si vous ne souhaitez pas que l'on puisse accéder à votre historique d'avis, vous pouvez désactiver cette fonctionnalité dans votre profil. Alors, vous êtes « Fin gourmet » vous, non ?",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "57",
+                "title": "Quelles sont les informations de mon compte que les autres utilisateurs peuvent voir ?",
+                "categorie": "Sur votre compte",
+                "answer": "Votre prénom et l'initiale de votre nom sont visibles par les autres utilisateurs. Si vous avez choisi d'avoir un profil public, vos avis seront visibles en cliquant sur votre nom. Si vous ne souhaitez pas qu'on puisse les lire, rendez-vous sur « mon profil » dans l'onglet « Mon compte » et décocher « Je souhaite activer l'accès à mon profil public ». Vos avis seront alors uniquement visibles sur les fiches des restaurants.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "58",
+                "title": "Pourquoi utiliser Facebook Connect sur LaFourchette ?",
+                "categorie": "Sur votre compte",
+                "answer": "Gagnez du temps grâce à Facebook Connect lors de votre inscription et de vos connections sur LaFourchette ! Si vous le souhaitez, les informations de votre page Facebook telles que votre photo, nom, prénom et ville seront utilisées sur votre compte LaFourchette.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "59",
+                "title": "Qu'est-ce que le statut de prescripteur ?",
+                "categorie": "Sur la double réservation, devenir prescripteur",
+                "answer": "Avec votre compte utilisateur, vous ne pouvez pas multiplier les réservations sur un même horaire, au sein du même restaurant ou dans un autre. Cependant, si vous êtes amené à réserver régulièrement pour d'autres personnes, vous pouvez demander l'obtention du statut prescripteur, qui vous permettra de cumuler les réservations.",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            },
+            {
+                "id": "60",
+                "title": "Comment obtenir ce statut ?",
+                "categorie": "Sur la double réservation, devenir prescripteur",
+                "answer": "Il vous suffit de simuler une double réservation. Au moment de valider votre deuxième réservation pour le même repas, le même jour, une fenêtre s'affichera afin de vous proposer de changer votre statut. Vous n'aurez plus qu'à remplir le formulaire dédié et attendre que l'on vous contacte !",
+                "rate": 0,
+                "nbViews": 0,
+                "popular": 0
+            }
+        ],
+        "siteId": "easicrm.5.0.dev"
+    }
+}

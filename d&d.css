@@ -1,0 +1,33 @@
+
+.thumbnail { 
+    height: 80px; 
+    width:385px; 
+    margin-left: 20px;
+    margin-right: 20px; 
+    margin-top: 5px; 
+}
+
+
+.span3 { 
+    margin: 3px;
+}
+
+
+.btn-droppable { 
+    width: 100px; 
+    height: 30px; 
+    padding-left: 4px; 
+}
+
+.btn-draggable { 
+    width: 80px; 
+}
+
+
+.box1 { 
+    position: relative;
+    margin: 50px;
+    height: 500px;
+    width: 450px;
+    border: 1px solid black;
+}

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="css/wsc.css"/>
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+	<link rel="stylesheet" href="css/wsc2.css"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
 
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
-		<script type="text/javascript" src="ui-bootstrap-tpls-0.11.0.min.js"></script>
-		<script type="text/javascript" src="app.js"></script>
-	    <!-- // <script type="text/javascript" src="http://m-e-conroy.github.io/angular-dialog-service/javascripts/dialogs.min.js"></script> -->
-	</head>
-	
-	<body ng-app='WebSelfCare'>
+<body>
+
+	<div ng-app='WebSelfCare'>
+		<div ng-stylecss></div>
 		<div ng-controller="getInfoCtrl as app" id= "globalDiv">
-			<div id="search-box">
+		
+			<div class="spinner" ng-show="isSomethingLoading"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div>
+			</div>
+							
+			<div id="search-box" ng-show="!isSomethingLoading">
 				<form id="search-form" ng-show="affFormSearch">
 					<div class="searchBox">
 						<input id="search-text" type="text" ng-model="textSearch" placeholder="Une question ... ?" required/>
@@ -22,14 +25,15 @@
 				</form>	
 			</div>
 
+			<div ng-show="!noResponse"> <p class="noResponseSearch"> Aucun article ne correspond à votre recherche<br> Veuillez reformuler votre question S.V.P.</p> </div>
 
-
-			<div id="result">
+			<div id="result" ng-show="!isSomethingLoading">
 				<ul class="searchResult" >
 					<li ng-show="afficheResSearch" ng-repeat= "questionSearch in tabFinalPoids | orderBy: '-weight' | unique: 'title' ">
 						<a  href="#" class="question" ng-click="setSelectedQuestionSearch(questionSearch)">{{questionSearch.title}}</a>
-						<a href="#" class="questionViews" ng-click="setSelectedQuestionSearch(questionSearch)"> Vu {{questionSearch.nbViews}} fois</a>
-
+						<a href="#" class="questionViews" ng-click="setSelectedQuestionSearch(questionSearch)"> 
+							Vu {{questionSearch.nbViews}} fois
+						</a>
 					</li>
 				</ul>
 				
@@ -40,12 +44,10 @@
 						</a>
 						<a ng-show= "aff" href="#" class="questionViews" ng-click="setSelectedQuestion(question)">Vu {{question.nbViews}} fois</a>
 					</li>
-					<p ng-hide="!indice" class="answer">{{selectedQuestion.answer}}</p>				
-					<p ng-show="!afficheRepSearch" class="answer">{{selectedQuestionSearch.answer}}</p>
 
-					<!-- <p ng-show="!affViewsSearch" class="views">Cet article a été consulté {{selectedQuestionSearch.nbViews}} fois</p> -->
-					<!-- <button ng-show="!affViewsSearch" class="views" ng-click="noReply(textSearch)">Pas de réponse ?</button> -->
-					<p ng-hide="!pop" class="answer">{{selectedQuestionPop.answer}}</p>	
+					<p ng-bind-html="selectedQuestion.answer | unsafe" ng-hide="!indice" class="answer"></p>			
+					<p ng-bind-html="selectedQuestionSearch.answer | unsafe" ng-show="!afficheRepSearch" class="answer"></p>
+					<p ng-bind-html="selectedQuestionPop.answer | unsafe" ng-hide="!pop" class="answer"></p>
 					<p class="views" ng-show="!affViewsPop">Cet article a été consulté {{selectedQuestionPop.nbViews}} fois</p>	
 					<div ng-show="!affNoReply">
 						<p class="usefulAnswer">Cette réponse vous a était utile ?</p>
@@ -71,13 +73,13 @@
 				</ul>
 			</div>
 
-			<!-- cat -->
+		<!-- cat -->
 
-			<div id="topic">
+			<div id="topic" ng-show="!isSomethingLoading">
 				<div id="category"><h3 class="catTitle">Catégories</h3></div> 
 				<div>
 					<ul class="rubrique">
-						<div class="categoryBlock" ng-repeat= "cat in tab | unique: 'categorie'" ng-if="cat.categorie != null" >
+						<div class="categoryBlock" ng-repeat= "cat in tab | unique: 'categorie' " ng-if="cat.categorie != null" >
 							<a class="catLink" href="#" ng-click="setSelectedCat(cat)" >
 								<div class="category"><p>{{cat.categorie}}</p></div>
 							</a>
@@ -86,8 +88,20 @@
 				</div>
 			</div> 
 
+			<!-- Sujets les plus consultés -->
+			<div id="consultationBox" ng-show="!isSomethingLoading">
+				<div id="topConsultArticle"> <h3 class="titleTopConsult">Sujets les plus consultés</h3> </div>
+				<ul class="pop">
+					<li ng-repeat= "article in tab |  orderBy : '-nbViews' | limitTo : '10'">
+						<a href="#" class="question" ng-click="setSelectedQuestionPop(article)">
+							<p>{{article.title}}</p>
+						</a>
+					</li>					
+				</ul>
+			</div> 
+
 			  <!-- Popular box -->
-			<div id="importantBox">
+			<div id="importantBox" ng-show="!isSomethingLoading">
 				<div id="popArticle"> <h3 class="titlePop">Sujets importants</h3> </div>
 				<ul class="pop">
 					<li ng-repeat= "article in tab | filter: {popular:'1'}">
@@ -96,10 +110,10 @@
 						</a>
 					</li>					
 				</ul>
-			</div> 
+			</div>
 
-			<!-- Didactitiel de la FAQ -->
-			<div id="tutorial"> 
+		<!-- Didactitiel de la FAQ -->
+			<div id="tutorial" ng-show="!isSomethingLoading"> 
 				<h3 class="tutoTitle">Comment fonctionne la F.A.Q. ?</h3>
 				<div class="step">
 					<h4 class="stepTitle">Entrez</h4>
@@ -117,9 +131,8 @@
 					<p class="stepParaph"> l'assistance si la FAQ ne peut vous aider </p>	
 
 				</div>
-			</div>
-			<!-- Didactitiel de la FAQ -->
- 
+			</div> 
 		</div>	
-	</body>
+	</div>
+</body>
 </html>

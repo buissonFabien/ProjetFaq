@@ -33,7 +33,8 @@ coll = db.collection(last_collection)
 ### Test d'insertion d'un document dans la base ###
 
 
-d1 = {
+d1 = 
+{
 	:id => '1',
 	:title => 'Qui sommes-nous et que proposons-nous ?',
 	:categorie => 'Decouvrez LaFourchette ',
@@ -43,6 +44,7 @@ d1 = {
 	:popular => 1
 }
 d2 = {
+
 	:id => '2',
 	:title => 'Quels restaurants trouve-t-on sur LaFourchette ?',
 	:categorie => 'Restaurants',
@@ -201,17 +203,24 @@ d16 = {
 
 
 key = 'https://dev2.easiware.fr/7.2/easicrm.5.0.dev'
-d17 =	{
-			:id => '17',
-			:key => key,
-		  	:value => {
-		    	:siteid  => 'easicrm.5.0.dev',
-		   		:KBarticles => [
-		   		
-			        
-		      	]
-			}
-		}
+
+d17 =	
+
+{
+	:key => key,
+  	:value => {
+    	:siteid  => siteId,
+   		:KBarticles => [
+	        :id => "id de l'article",
+			:title => "Titre de l'article",
+			:categorie => "catégorie de l'article",
+			:answer => "Corps de l'article",
+			:rate => 0,
+			:nbViews => 0, 
+			:popular => 0
+      	]
+	}
+}
 
 coll.insert(d1)
 coll.insert(d2)

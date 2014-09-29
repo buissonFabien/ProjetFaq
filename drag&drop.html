@@ -1,0 +1,156 @@
+<!-- <html ng-app='faqBuilder'> -->
+<!-- <head> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+    <!-- // <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script> -->
+
+    <!-- // <script type="text/javascript" src="drag&drop.js"></script> -->
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> -->
+    
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">     -->
+    <!-- Latest compiled and minified JavaScript -->
+    <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>-->
+    <!-- angular js
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-sanitize.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-animate.min.js"></script>-->
+<!-- 
+<style>
+    .red{color:red;}
+    .select{color:green;cursor:pointer;padding:3px;}
+</style>
+</head>
+<div> -->
+<!--     <body ng-controller='faqBuilderUI'>
+    <h1> EN COURS DE CONSTRUCTION ....</h1>
+
+    <div>  
+        <div class="col-md-3">   
+            <div class="panel panel-primary" id='form-palette'>
+                <div class="panel-heading"><b>Styles</b></div>
+                <div class="panel-body">
+                    
+                    <div ng-repeat='field in fields' ng-animate="'animate'">
+                        <input ng-disabled="field.selected" ng-model="field.selected" ng-click='addField($index)' type='checkbox' value="{{field.fieldXMLTag}}" /><span class="text-primary"><strong>{{field.fieldName}}</strong></span>
+
+                    </div>
+                </div>
+            </div>
+        </div>  -->
+<!--         <div class="col-md-9">      
+            <div class="panel panel-success" id='form-builder'>
+                <div class="panel-heading"><b>Formulaire</b>
+                </div>
+                    <div class="panel-body">
+                        <div ng-repeat="field in compositionFields" ng-animate="'animate'">
+                            <div class="row" style="padding:2px;">
+                                <div class="col-md-2"> -->
+                                    <!--<label class="control-label" style='margin-right:{{field.labelWidth}}px;'>{{$index+1}} - {{field.fieldName}}</label>-->
+                                   <!--  <label ng-class="{red:field.mandatory}" class="control-label">{{field.fieldName}}</label>
+
+                                </div>
+                                <div class="col-md-5">    
+                                    <input class="form-control input-sm"  id='{{field.fieldXMLTag}}' placeholder={{field.fieldName}}  ng-model="field.fieldName" type='text' >
+                                </div>
+                                
+                                <div style ='cursor: pointer;' class="col-md-1"><span class="glyphicon glyphicon-chevron-up" ng-class="{hide:$first}" ng-click='up($index,$first)' >&nbsp;</span></div>
+                                
+                                <div style ='cursor: pointer;' class="col-md-1"><span class="glyphicon glyphicon-chevron-down" ng-class="{hide:$last}" ng-click='down($index,$last)'>&nbsp;</span></div>   
+                                
+                                <div style ='cursor: pointer;' class="col-md-2"><input ng-click="setmandatory($index)"   ng-model="field.mandatory" type='checkbox'/><span class="glyphicon glyphicon-asterisk red">&nbsp;</span></div>
+                                
+                                <div style ='cursor: pointer;' class="col-md-1"><span class="glyphicon glyphicon-remove red" ng-click='deleteField($index)'>&nbsp;</span></div> 
+
+                            </div>
+
+                            
+                        </div> -->
+<!--                     </div>
+                    <div class="panel-footer">                                                           
+                        <div class="row"> 
+                            <div class="col-md-3 col-md-offset-4">
+                                <button type="button" class="btn btn-success btn-lg btn-block" ng-click='save()'>Sauvegarder</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html ng-app="drag-and-drop">  
+  <head>
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="d&d.css"/>
+  </head>  
+
+  <body>
+    <div ng-controller="oneCtrl">
+      <div class='contentWrapper ng-cloak'>
+        <div class='content'>
+            <div class="thumbnails">
+                <div class="box1" data-drop="false" ng-model='list1' data-jqyoui-options="optionsList1" jqyoui-droppable="{multiple:false}">
+
+                     <div class="span3" >
+                        <div class="thumbnail" data-drop="true" ng-model='list2' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list2])'}"  jqyoui-droppable="{multiple:true}">
+                          <div class="caption">
+                            <div class="btn btn-info btn-draggable" ng-repeat="item in list2" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="span3" >
+                        <div class="thumbnail" data-drop="true" ng-model='list3' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list3])'}"  jqyoui-droppable="{multiple:true}">
+                          <div class="caption">
+                            <div class="btn btn-info btn-draggable" ng-repeat="item in list3" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list3" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="span3">
+                        <div class="thumbnail" data-drop="true" ng-model='list4' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list4])'}"  jqyoui-droppable="{multiple:true}">
+                          <div class="caption">
+                            <div class="btn btn-info btn-draggable" ng-repeat="item in list4" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list4" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                          </div>
+                        </div>
+                      </div>
+
+                     <div class="span3" >
+                        <div class="thumbnail" data-drop="true" ng-model='list5' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list5])'}"  jqyoui-droppable="{multiple:true}">
+                          <div class="caption">
+                            <div class="btn btn-info btn-draggable" ng-repeat="item in list5" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list5" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      
+      <div class="navbar-inner">
+        <div class="container form-inline" style="text-align: center;">
+          <div class="btn btn-droppable" ng-repeat="item in list0" data-drop="true" ng-model='list0' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list0])'}"  jqyoui-droppable="{index: {{$index}}}">
+            <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list0" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-hide="!item.title">{{item.title}}</div>
+          </div>
+        </div>
+      </div>
+
+      <button ng-click="affList()">Afficher la liste</button>
+
+    </div>
+
+
+    <script type="text/javascript" src="drag&drop.js"></script>
+  </body>
+</html>
