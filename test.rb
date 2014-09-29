@@ -279,18 +279,3 @@ end
 
 
 
- {
-    "key": "https://dev2.easiware.fr/7.2/easicrm.5.0.dev",
-
-  "articles" : [
-      {
-        "id" : "61",
-        "title" : "TEST",
-        "categorie" : "XXXXXXXXXXXXXxx, devenir prescripteur",
-        "answer"  : "Il vous suffit de siXXXXXXXXXXXXXXXXXXx dédié et attendre que l'on vous contacte !",
-        "rate": 0,
-         "nbViews": 99,
-                "popular": 0
-      }
-    ]
-}
