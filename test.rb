@@ -134,64 +134,24 @@ post '/post' do
 	key = topObject["key"]
 	articles = topObject["articles"]
 
-	# if coll.find( { key: key } )
-	# { 
+	$i=0
+	begin
+   		art = articles [$i]
 
-		$i=0
-		begin
-	   		art = articles [$i]
+		@id	  	  = art['id']
+		@title	  = art['title']
+		@categorie = art['categorie']
+		@answer   = art['answer']
 
-			@id	  	  = art['id']
-			@title	  = art['title']
-			@categorie = art['categorie']
-			@answer   = art['answer']
+		@rate     = art['rate']
+		@nbViews = art['nbViews']
+		@popular = art['popular']
 
-			@rate     = art['rate']
-			@nbViews = art['nbViews']
-			@popular = art['popular']
+		coll.update({ key: key },{ "$push" => {'value.articles' =>
+			{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
 
-			coll.update({ key: key },{ "$push" => {'value.articles' =>
-				{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
-
-		   	$i += 1
-		end while $i <= articles.length
-	# }
-	# else {
-	
-	# sections = topObject["value"]
-	# secId = sections["siteid"]
-	# articles = topObject["articles"]
-	# articles = sections["articles"]
-	# d1 ={
-	# 		:key => key,
-	# 	  	:value => {
-	# 	    	:siteId  => secId,
-	# 	   		:articles => [
-		   			        
-	# 	      	]
-	# 		}
-	# 	}
-	# coll.insert(d1)
-	# }
-
-	# $i=0
-	# 	begin
-	#    		art = articles [$i]
-
-	# 		@id	  	  = art['id']
-	# 		@title	  = art['title']
-	# 		@categorie = art['categorie']
-	# 		@answer   = art['answer']
-
-	# 		@rate     = art['rate']
-	# 		@nbViews = art['nbViews']
-	# 		@popular = art['popular']
-
-	# 		coll.update({ key: key },{ "$push" => {'value.articles' =>
-	# 			{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
-
-	# 	   	$i += 1
-	# 	end while $i <= articles.length
+	   	$i += 1
+	end while $i <= articles.length
 
 end
 
