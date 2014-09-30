@@ -93,16 +93,19 @@ post '/create' do
 	secId = sections["siteid"]
 	articles = topObject["articles"]
 	articles = sections["articles"]
-	d1 ={
-			:key => key,
-		  	:value => {
-		    	:siteId  => secId,
-		   		:articles => [
+	# d1 ={
+	# 		:key => key,
+	# 	  	:value => {
+	# 	    	:siteId  => secId,
+	# 	   		:articles => [
 		   			        
-		      	]
-			}
-		}
-	coll.insert(d1)
+	# 	      	]
+	# 		}
+	# 	}
+	# coll.insert(d1)
+
+	coll.update({ "$push" => {'_id.$oid' =>
+			{ key: key, value: { siteId: secId, articles: []} }}})
 
 end
 
