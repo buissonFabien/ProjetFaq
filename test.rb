@@ -93,16 +93,18 @@ post '/create' do
 	secId = sections["siteid"]
 	articles = topObject["articles"]
 	articles = sections["articles"]
-	d1 ={
-			:key => key,
-		  	:value => {
-		    	:siteId  => secId,
-		   		:articles => [
+	# d1 ={
+	# 		:key => key,
+	# 	  	:value => {
+	# 	    	:siteId  => secId,
+	# 	   		:articles => [
 		   			        
-		      	]
-			}
-		}
-	coll.insert(d1)
+	# 	      	]
+	# 		}
+	# 	}
+	# coll.insert(d1)
+
+	coll.update({ $oid: "53ec877ce4b055eb09584834" },{ "$push" => { key: key, value : { articles []}}})
 end
 
 ###############################################################################
@@ -241,41 +243,41 @@ end
 # }
 
 
-# post '/postAndCreate' do
-# 	corp = request.body.string
+post '/postAndCreate' do
+	corp = request.body.string
 
-# 	db = get_connection
+	db = get_connection
 	 
-# 	puts "Collections"
-# 	puts "==========="
-# 	collections = db.collection_names
+	puts "Collections"
+	puts "==========="
+	collections = db.collection_names
 
-# 	topObject = JSON.parse(corp)
-# 	key = topObject["key"]
-# 	articles = topObject["articles"]
+	topObject = JSON.parse(corp)
+	key = topObject["key"]
+	articles = topObject["articles"]
 
-# 	if coll.find( {"key" : key})
+# 	if (coll.find( {"key" : key}))
 # 	{
-# 		$i=0
-# 		begin
-# 	   		art = articles [$i]
+		$i=0
+		begin
+	   		art = articles [$i]
 
-# 			@id	  	  = art['id']
-# 			@title	  = art['title']
-# 			@categorie = art['categorie']
-# 			@answer   = art['answer']
+			@id	  	  = art['id']
+			@title	  = art['title']
+			@categorie = art['categorie']
+			@answer   = art['answer']
 
-# 			@rate     = art['rate']
-# 			@nbViews = art['nbViews']
-# 			@popular = art['popular']
+			@rate     = art['rate']
+			@nbViews = art['nbViews']
+			@popular = art['popular']
 
-# 			coll.update({ key: key },{ "$push" => {'value.articles' =>
-# 				{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
+			coll.update({ key: key },{ "$push" => {'value.articles' =>
+				{ id: @id, title: @title, categorie: @categorie, answer: @answer, rate: @rate, nbViews: @nbViews, popular: @popular }}})
 
-# 		   	$i += 1
-# 		end while $i <= articles.length
+		   	$i += 1
+		end while $i <= articles.length
 # 	}
-# end
+end
 
 
 
